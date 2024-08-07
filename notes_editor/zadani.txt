@@ -1,0 +1,63 @@
+= Notepad (zadání "Aplikace: Poznámkovník")
+Autor: Viachaslau Biarko
+
+== Zadání
+
+Vaším úkolem je vytvořit program pro správu poznámek, seznamů a připomínek.
+
+Implementujte následující funkcionality:
+
+1. Vytvořte alespoň 3 druhy poznámek (složka poznámek se nepočítá, př. textová, nákupní seznam, todo list, tabulka, myšlenková mapa, …).
+
+2. Poznámky jsou umisťovány do adresářů, které mohou mít podadresáře. Pro každou poznámku je možné určit název, datum vytvoření, štítky (tagy). Pro jednotlivé druhy pak další potřebné atributy.
+
+3.Umožněte vytvářet, zobrazovat, upravovat a mazat formátované poznámky. Veškeré úpravy a změny evidujte v logu aktivit u jednotlivých poznámek.
+
+4. Umožněte export poznámek do nějakého standardního formátu (př. HTML, Markdown, AsciiDoc, …).
+
+5. Umožněte vyhledávat poznámky podle názvu, data vytvoření, štítků, adresáře nebo textu v nich obsaženého a jejich kombinací (př. v adresáři "škola" se štítky "PA1" nebo "PA2", …).
+
+6. Umožněte poznámky exportovat a následně importovat (vytvořte vhodný textový formát). Export musí podporovat všechny či podmnožinu určenou vyhledáváním.
+
+Kde lze využít polymorfismus? (doporučené)
+
+- druhy poznámek: složka poznámek, textová poznámka, seznam úkolů, nákupní seznam (zobrazuje celkovou cenu), tabulka, myšlenková mapa, …
+
+- filtry k vyhledávání: (ne)obsahuje text, a zároveň, nebo, procento úkolů splněno
+
+- různé formáty importu a exportu: proprietární, HTML, Markdown, AsciiDoc, …
+
+- různá kritéria řazení poznámek: podle data vytvoření, podle abecedy, …
+
+- uživatelské rozhraní: konzole, ncurses, SDL, OpenGL (různé varianty), …
+
+== Specifikace
+
+Budeme implementovat aplikaci NotepadApp. Aplikace má hlavní menu, které nabízí různé možnosti pro správu poznámek. Uživatel může vytvářet nové poznámky, vyhledávat stávající, otevírat a upravovat, mazat, exportovat do formátu HTML a importovat. Každá poznámka má svůj unikátní ID, jméno, cestu, tagy a další specifické informace v závislosti na typu poznámky.
+
+Uživatel může hledat poznámky podle různých kritérií (jméno, tag, čas vytvoření, cesta, obsah). Výsledky hledání jsou zobrazeny v přehledném seznamu.
+
+Aplikace také umožňuje exportovat poznámky do HTML a importovat poznámky z externích zdrojů.
+
+Příklad, jak vypadá Main Menu:
+
+Welcome to notepad!
+[1] Create note
+[2] Search note
+[3] Open note
+[4] Edit note
+[5] Delete note
+[6] Export note to HTML
+[7] Import note
+[8] Exit
+Enter choice:
+
+== Polymorfismus
+
+Polymorfismus je aplikován v rámci hierarchie tříd `Note`, který má tři potomky `Text`, `ToDoList` a `ShoppingList`. Každá z těchto tříd má polymorfní metody pro manipulaci s daty, jako je editace obsahu nebo změna informací o poznámce. Implementace pro každou z těchto tříd je specifická v závislosti na typu poznámky.
+
+Polymorfismus je také aplikován v hierarchii tříd Menu, kde různá menu mají různé implementace metod pro provedení operací.
+
+K polymorfnímu volání dochází v metodě NotepadApp::run, kde je vytvořen objekt třídy NotepadApp a poté je na něm zavolána metoda run. Tato metoda obsahuje cyklus, ve kterém se přistupuje k různým objektům tříd Note a Menu.
+
+NOTE: Vedlejší polymorfismus budeme mít nad Menu, které nám umožňuje vytvářet různé typy menu pro interakci s uživatelem. Každé menu má své specifické metody a akce, které se provádějí v závislosti na aktuálním kontextu.

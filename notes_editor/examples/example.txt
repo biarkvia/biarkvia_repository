@@ -1,0 +1,8 @@
+1
+1
+path/to/todonote
+tag1 tag 2 tag3
+noteName
+6
+2
+exportNoteFile

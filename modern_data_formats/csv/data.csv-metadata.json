@@ -1,0 +1,270 @@
+{
+    "@context": [ "http://www.w3.org/ns/csvw", { "@language": "en" } ],
+	"@type": "TableGroup",
+	"@id": "https://example.org/taxiServiceDrivers/data.csv-metadata.json",
+	"rdfs:comment": "taxiServiceDrivers",
+	"tables": [
+        {
+            "@id": "https://example.org/cities-csv.json",
+			"@type": "Table",
+			"url": "data-1.csv",
+			"tableSchema": {
+				"@type": "Schema",
+				"aboutUrl": "http://example.org/city/{cityName}",
+				"propertyUrl": "http://example.org/vocabulary/{cityName}",
+				"columns": [
+					{
+						"@type": "Column",  
+						"name": "cityName",
+						"titles": "cityName",
+						"rdfs:label": "Name of a city",
+						"required": true,
+						"datatype": "string",
+						"lang": "en"
+					}
+				],
+                "primaryKey": "cityName"
+			}
+        },
+        {
+            "@id": "https://example.org/taxiServices-csv.json",
+			"@type": "Table",
+			"url": "data-2.csv",
+			"tableSchema": {
+				"@type": "Schema",
+				"aboutUrl": "http://example.org/taxiService/{taxiServiceName}",
+				"propertyUrl": "http://example.org/vocabulary/{taxiServiceName}",
+				"columns": [
+					{
+						"@type": "Column",
+						"name": "taxiServiceName",
+						"titles": "taxiServiceName",
+						"rdfs:label": "Name of the taxi service",
+						"required": true,
+						"datatype": "string",
+						"lang": "en"
+					}, 
+                    {
+                        "@type": "Column",
+                        "name": "phoneNumber",
+                        "titles": "phoneNumber",
+                        "rdfs:label": "Phone number of the taxi service",
+                        "required": false,
+                        "datatype": {
+                            "base": "string",
+                            "array": true
+                        },
+                        "lang": "en"
+                    },
+                    {
+                        "@type": "Column",
+						"name": "provides",
+						"titles": "provides",
+						"rdfs:label": "City where the taxi service provides",
+						"required": true,
+						"datatype": "string",
+						"lang": "en",
+                        "valueUrl": "http://example.org/city/{provides}"
+                    }
+				],
+                "primaryKey": "taxiServiceName",
+                "foreignKeys": [
+                    {
+                        "columnReference": "provides",
+                        "reference": {
+                            "resource": "data-1.csv",
+                            "columnReference": "cityName"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@id": "https://example.org/drivers-csv.json",
+            "@type": "Table",
+            "url": "data-3.csv",
+            "tableSchema": {
+                "@id": "https://example.org/drivers-csv.json",
+                "@type": "Table",
+                "url": "data-3.csv",
+                "tableSchema": {
+                    "@type": "Schema",
+                    "aboutUrl": "http://example.org/driver/{nickname}",
+                    "propertyUrl": "http://example.org/vocabulary/{nickname}",
+                    "columns": [
+                        {
+                            "@type": "Column",
+                            "name": "nickname",
+                            "titles": "nickname",
+                            "rdfs:label": "Driver's nickname",
+                            "required": true,
+                            "datatype": "string",
+                            "lang": "en"
+                        }, 
+                        {
+                            "@type": "Column",
+                            "name": "givenName",
+                            "titles": "givenName",
+                            "rdfs:label": "Driver's given name",
+                            "required": true,
+                            "datatype": "string",
+                            "lang": "en"
+                        }, 
+                        {
+                            "@type": "Column",
+                            "name": "familyName",
+                            "titles": "familyName",
+                            "rdfs:label": "Driver's family name",
+                            "required": true,
+                            "datatype": "string",
+                            "lang": "en"
+                        },
+                        {
+                            "@type": "Column",
+                            "name": "rating",
+                            "titles": "rating",
+                            "rdfs:label": "Driver's rating",
+                            "required": false,
+                            "datatype": {
+                              "base": "integer",
+                              "array": true
+                            }
+                        },
+                        {
+                            "@type": "Column",
+                            "name": "collaborate",
+                            "titles": "collaborate",
+                            "rdfs:label": "Drivers collaborate with taxi services",
+                            "required": true,
+                            "datatype": "string",
+                            "valueUrl": "http://example.org/taxiService/{collaborate}"
+                        },
+                        {
+                            "@type": "Column",
+                            "name": "hasTrip",
+                            "titles": "hasTrip",
+                            "rdfs:label": "The driver has a trip",
+                            "required": false,
+                            "valueUrl": "http://example.org/trip/{hasTrip}"
+                        },
+                        {
+                            "@type": "Column",
+                            "name": "performs",
+                            "titles": "performs",
+                            "rdfs:label": "The driver performs the type of trip",
+                            "required": true,
+                            "valueUrl": "http://example.org/tripType/{performs}"
+                        }
+                    ],
+                    "primaryKey": "nickname",
+                    "foreignKeys": [
+                        {
+                            "columnReference": "collaborate",
+                            "reference": {
+                            "resource": "data-2.csv",
+                            "columnReference": "taxiServiceName"
+                            }
+                        },
+                        {
+                            "columnReference": "hasTrip",
+                            "reference": {
+                            "resource": "data-4.csv",
+                            "columnReference": "number"
+                            }
+                        },
+                        {
+                            "columnReference": "performs",
+                            "reference": {
+                            "resource": "data-5.csv",
+                            "columnReference": "tripTypeName"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "@id": "https://example.org/trips-csv.json",
+            "@type": "Table",
+            "url": "data-4.csv",
+            "tableSchema": {
+                "@type": "Schema",
+                "aboutUrl": "http://example.org/trip/{number}",
+                "propertyUrl": "http://example.org/vocabulary/{number}",
+                "columns": [
+                    {
+                        "@type": "Column",
+                        "name": "number",
+                        "titles": "number",
+                        "rdfs:label": "Unique number of trip",
+                        "required": true,
+                        "datatype": "integer",
+                        "lang": "en"
+                    },
+                    {
+                        "@type": "Column",
+                        "name": "startAddress",
+                        "titles": "startAddress",
+                        "rdfs:label": "Starting point of trip",
+                        "required": true,
+                        "datatype": "string",
+                        "lang": "en"
+                    },
+                    {
+                        "@type": "Column",
+                        "name": "endAddress",
+                        "titles": "endAddress",
+                        "rdfs:label": "Ending point of trip",
+                        "required": true,
+                        "datatype": "string",
+                        "lang": "en"
+                    },
+                    {
+                        "@type": "Column",
+                        "name": "price",
+                        "titles": "price",
+                        "rdfs:label": "Price of trip",
+                        "required": true,
+                        "datatype": "integer",
+                        "lang": "en"
+                    }
+                ],
+                "primaryKey": "number"
+            }
+        },
+        {
+            "@id": "https://example.org/tripType-csv.json",
+            "@type": "Table",
+            "url": "data-5.csv",
+            "tableSchema": {
+                "@type": "Schema",
+                "aboutUrl": "http://example.org/tripType/{tripTypeName}",
+                "propertyUrl": "http://example.org/vocabulary/{tripTypeName}",
+                "columns": [
+                    {
+                        "@type": "Column",
+                        "name": "tripTypeName",
+                        "titles": "tripTypeName",
+                        "rdfs:label": "Type of trip",
+                        "required": true,
+                        "datatype": "string",
+                        "lang": "en"
+                    },
+                    {
+                        "@type": "Column",
+                        "name": "hasTrips",
+                        "titles": "hasTrips",
+                        "rdfs:label": "Trips associated with the trip type",
+                        "required": false,
+                        "datatype": {
+                            "base": "string",
+                            "array": true
+                        },
+                        "valueUrl": "http://example.org/trip/{hasTrips}"
+                    }
+                ],
+                "primaryKey": "tripTypeName"
+            }
+        }
+    ]
+}

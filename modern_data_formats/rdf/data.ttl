@@ -1,0 +1,306 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/vocabulary/> .
+
+@prefix city: <http://example.org/city/> .
+@prefix taxiService: <http://example.org/taxiService/> .
+@prefix driver: <http://example.org/driver/> .
+@prefix trip: <http://example.org/trip/> .
+@prefix tripType: <http://example.org/tripType/> .
+
+ex:city a rdfs:Class ;
+rdfs:label "city"@en ;
+rdfs:comment "The city served by the taxi service"@en .
+
+ex:cityName a rdf:Property ;
+rdfs:label "Name of the city" ;
+rdfs:domain ex:city ;
+rdfs:range rdf:langString .
+
+
+ex:taxiService a rdfs:Class ;
+rdfs:label "taxiService"@en ;
+rdfs:comment "Taxi services with drivers"@en .
+
+ex:taxiServiceName a rdf:Property ;
+rdfs:label "Name of the taxi service"@en ;
+rdfs:domain ex:taxiService ;
+rdfs:range rdf:langString .
+
+ex:phoneNumber a rdf:Property ;
+rdfs:label "Phone number of the taxi service"@en ;
+rdfs:domain ex:taxiService ;
+rdfs:range xsd:string .
+
+ex:provides a rdf:Property ;
+rdfs:label "City where the taxi service provides"@en ;
+rdfs:domain ex:taxiService ;
+rdfs:range ex:city .
+
+
+ex:driver a rdfs:Class ;
+rdfs:label "driver"@en ;
+rdfs:comment "This class represents drivers"@en .
+
+ex:nickname a rdf:Property ;
+rdfs:label "Driver's nickname"@en ;
+rdfs:domain ex:driver ;
+rdfs:range rdf:langString .
+
+ex:givenName a rdf:Property ;
+rdfs:label "Driver's given name"@en ;
+rdfs:domain ex:driver ;
+rdfs:range rdf:langString .
+
+ex:familyName a rdf:Property ;
+rdfs:label "Driver's family name"@en ;
+rdfs:domain ex:driver ;
+rdfs:range rdf:langString .
+
+ex:rating a rdf:Property ;
+rdfs:label "Driver's rating"@en ;
+rdfs:domain ex:driver ;
+rdfs:range  xsd:integer .
+
+ex:collaborate a rdf:Property ;
+rdfs:label "Drivers collaborate with taxi services"@en ;
+rdfs:domain ex:driver ;
+rdfs:range ex:taxiService .
+
+ex:hasTrip a rdf:Property ;
+rdfs:label "The driver has a trip"@en ;
+rdfs:domain ex:driver ;
+rdfs:range ex:trip .
+
+ex:performs a rdf:Property ;
+rdfs:label "The driver performs the type of trip"@en ;
+rdfs:domain ex:driver ;
+rdfs:range ex:tripType .
+
+
+ex:trip a rdfs:Class ;
+rdfs:label "trip"@en ;
+rdfs:comment "Trip assigned to a driver"@en .
+
+ex:number a rdf:Property ;
+rdfs:label "Unique number for the trip"@en ;
+rdfs:domain ex:trip ;
+rdfs:range  xsd:integer .
+
+ex:startAddress a rdf:Property ;
+rdfs:label "Starting point of trip"@en ;
+rdfs:domain ex:trip ;
+rdfs:range rdf:langString .
+
+ex:endAddress a rdf:Property ;
+rdfs:label "Ending point of trip"@en ;
+rdfs:domain ex:trip ;
+rdfs:range rdf:langString .
+
+ex:price a rdf:Property ;
+rdfs:label "Price of trip"@en ;
+rdfs:domain ex:trip ;
+rdfs:range  xsd:integer .
+
+
+ex:tripType a rdfs:Class ;
+rdfs:label "Trip type"@en ;
+rdfs:comment "This class represents the type of trip"@en .
+
+ex:tripTypeName a rdf:Property ;
+rdfs:label "Name of type of trip"@en ;
+rdfs:domain ex:tripType ;
+rdfs:range rdf:langString .
+
+ex:hasTrips a rdf:Property ;
+rdfs:label "Trip type has several trips"@en ;
+rdfs:domain ex:tripType ;
+rdfs:range ex:trip .
+
+
+#Cities
+city:Minsk a ex:city ;
+ex:cityName "Minsk"@en .
+
+city:Amsterdam a ex:city ;
+ex:cityName "Amsterdam"@en .
+
+city:Prague a ex:city ;
+ex:cityName "Prague"@en .
+
+city:Rome a ex:city ;
+ex:cityName "Rome"@en .
+
+city:Berlin a ex:city ;
+ex:cityName "Berlin"@en .
+
+
+#taxiService
+taxiService:Uber a ex:taxiService ;
+ex:taxiServiceName "Uber"@en ;
+ex:phoneNumber "999558642" .
+
+taxiService:Diamond a ex:taxiService ;
+ex:taxiServiceName "Diamond"@en ;
+ex:phoneNumber "914807900" .
+
+taxiService:777 a ex:taxiService ;
+ex:taxiServiceName "777"@en ;
+ex:phoneNumber "777" .
+
+taxiService:7788 a ex:taxiService ;
+ex:taxiServiceName "7788"@en ;
+ex:phoneNumber "778800000" .
+
+taxiService:AirportTaxis a ex:taxiService ;
+ex:taxiServiceName "AirportTaxis"@en ;
+ex:phoneNumber "112223334" .
+
+taxiService:SafetyCab a ex:taxiService ;
+ex:taxiServiceName "SafetyCab"@en ;
+ex:phoneNumber "211" .
+
+
+#driver
+driver:capybardak a ex:driver ;
+ex:nickname "capybardak"@en ;
+ex:givenName "Nick"@en ;
+ex:familyName "Jefferson"@en ;
+ex:rating 5 .
+
+driver:TerranceHawkins a ex:driver ;
+ex:nickname "TerranceHawkins"@en ;
+ex:givenName "Terrance"@en ;
+ex:familyName "Hawkins"@en ;
+ex:rating 5 .
+
+driver:vasridiczemrel a ex:driver ;
+ex:nickname "vasridiczemrel"@en ;
+ex:givenName "Umer"@en ;
+ex:familyName "Umbekov"@en ;
+ex:rating 5 .
+
+driver:collins000 a ex:driver ;
+ex:nickname "collins000"@en ;
+ex:givenName "Jose"@en ;
+ex:familyName "Collins"@en ;
+ex:rating 2 .
+
+driver:bobr a ex:driver ;
+ex:nickname "bobr"@en ;
+ex:givenName "Jazau"@en ;
+ex:familyName "Mahnietski"@en ;
+ex:rating 4 .
+
+driver:gregloy a ex:driver ;
+ex:nickname "gregloy"@en ;
+ex:givenName "Gregorz"@en ;
+ex:familyName "Lloyd"@en ;
+ex:rating 5 .
+
+driver:gladvalakas a ex:driver ;
+ex:nickname "gladvalakas"@en ;
+ex:givenName "Valero"@en ;
+ex:familyName "Zhmyshenko"@en ;
+ex:rating 1 .
+
+
+#trip
+trip:151516 a ex:trip ;
+ex:number 151516 ;
+ex:startAddress "2427 Public Works Drive"@en ;
+ex:endAddress "4439 Hamilton Drive"@en ;
+ex:price 155 .
+
+trip:97889 a ex:trip ;
+ex:number 97889 ;
+ex:startAddress "862 Ward Road"@en ;
+ex:endAddress "77 Thakurova"@en ;
+ex:price 1545 .
+
+trip:5115155 a ex:trip ;
+ex:number 5115155 ;
+ex:startAddress "3351 Longview Avenue"@en ;
+ex:endAddress "3351 Longview Avenue"@en ;
+ex:price 1 .
+
+trip:111111 a ex:trip ;
+ex:number 111111 ;
+ex:startAddress "958 Tully Street"@en ;
+ex:endAddress "4494 West Side Avenue"@en ;
+ex:price 69 .
+
+trip:98555 a ex:trip ;
+ex:number 98555 ;
+ex:startAddress "3097 Grasselli Street"@en ;
+ex:endAddress "1141 Gordon Street"@en ;
+ex:price 101 .
+
+trip:5151 a ex:trip ;
+ex:number 5151 ;
+ex:startAddress "2240 Kinney Street"@en ;
+ex:endAddress "3899 Little Street"@en ;
+ex:price 101 .
+
+trip:99899 a ex:trip ;
+ex:number 99899 ;
+ex:startAddress "1857 Courtright Street"@en ;
+ex:endAddress "2157 Southern Avenue"@en ;
+ex:price 101 .
+
+
+#tripType
+tripType:ComfortPlus a ex:tripType ;
+ex:tripTypeName "ComfortPlus"@en .
+
+tripType:Economy a ex:tripType ;
+ex:tripTypeName "Economy"@en .
+
+tripType:Business a ex:tripType ;
+ex:tripTypeName "Business"@en .
+
+tripType:Electro a ex:tripType ;
+ex:tripTypeName "Electro"@en .
+
+
+#Relation
+taxiService:Uber ex:provides city:Minsk .
+taxiService:Diamond ex:provides city:Amsterdam .
+taxiService:777 ex:provides city:Prague .
+taxiService:7788 ex:provides city:Berlin .
+taxiService:AirportTaxis ex:provides city:Rome .
+taxiService:SafetyCab ex:provides city:Berlin .
+
+driver:capybardak ex:collaborate taxiService:7788 .
+driver:capybardak ex:hasTrip trip:151516 .
+driver:capybardak ex:performs tripType:ComfortPlus .
+
+driver:TerranceHawkins ex:collaborate taxiService:777 .
+driver:TerranceHawkins ex:hasTrip trip:97889 .
+driver:TerranceHawkins ex:performs tripType:ComfortPlus .
+
+driver:vasridiczemrel ex:collaborate taxiService:Diamond .
+driver:vasridiczemrel ex:hasTrip trip:5115155 .
+driver:vasridiczemrel ex:performs tripType:Electro .
+
+driver:collins000 ex:collaborate taxiService:777 .
+driver:collins000 ex:hasTrip trip:111111 .
+driver:collins000 ex:performs tripType:Business .
+
+driver:bobr ex:collaborate taxiService:AirportTaxis .
+driver:bobr ex:hasTrip trip:98555 .
+driver:bobr ex:performs tripType:Business .
+
+driver:gregloy ex:collaborate taxiService:Uber .
+driver:gregloy ex:hasTrip trip:5151 .
+driver:gregloy ex:performs tripType:Business .
+
+driver:gladvalakas ex:collaborate taxiService:Uber .
+driver:gladvalakas ex:hasTrip trip:99899 .
+driver:gladvalakas ex:performs tripType:Economy .
+
+tripType:ComfortPlus ex:hasTrips trip:151516, trip:97889 .
+tripType:Economy ex:hasTrips trip:99899 .
+tripType:Business ex:hasTrips trip:111111, trip:98555, trip:5151 .
+tripType:Electro ex:hasTrips trip:5115155 .

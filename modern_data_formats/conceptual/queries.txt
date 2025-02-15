@@ -1,0 +1,5 @@
+Queries:
+1) How many drivers have a rating of 5?
+2) Check how many taxi services has a driver with name Nick
+3) Create a new RDF containing information about the list of drivers who have a rating greater than 3
+4) List the prices of trips where the starting and ending addresses are the same

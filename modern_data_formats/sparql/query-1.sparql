@@ -1,0 +1,8 @@
+# How many drivers have a rating of 5?
+
+PREFIX ex: <http://example.org/vocabulary/>
+SELECT (COUNT(?driver) AS ?count)
+WHERE {
+  ?driver ex:rating ?rating .
+  FILTER (?rating = 5)
+}

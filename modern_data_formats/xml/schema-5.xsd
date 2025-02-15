@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+<xs:element name="tripTypes">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="tripType" maxOccurs="unbounded" minOccurs="0">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="name">
+                        <xs:complexType>
+                           <xs:simpleContent>
+                              <xs:extension base="xs:string">
+                                 <xs:attribute ref="xml:lang" />
+                              </xs:extension>
+                           </xs:simpleContent>
+                        </xs:complexType>
+                     </xs:element>
+                     <xs:element name="URI" type="xs:anyURI" />
+                     <xs:element name="trips" minOccurs="0" maxOccurs="unbounded">
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element name="trip" maxOccurs="unbounded" minOccurs="1">
+                                 <xs:complexType>
+                                    <xs:sequence>
+                                       <xs:element name="number" type="xs:integer"/>
+                                       <xs:element name="startAddress">
+                                          <xs:complexType>
+                                             <xs:simpleContent>
+                                                <xs:extension base="xs:string">
+                                                   <xs:attribute ref="xml:lang" />
+                                                </xs:extension>
+                                             </xs:simpleContent>
+                                          </xs:complexType>
+                                       </xs:element>
+                                       <xs:element name="endAddress">
+                                          <xs:complexType>
+                                             <xs:simpleContent>
+                                                <xs:extension base="xs:string">
+                                                   <xs:attribute ref="xml:lang" />
+                                                </xs:extension>
+                                             </xs:simpleContent>
+                                          </xs:complexType>
+                                       </xs:element>
+                                       <xs:element name="price" type="xs:integer"/>
+                                       <xs:element name="URI" type="xs:anyURI"/>
+                                    </xs:sequence>
+                                 </xs:complexType>
+                              </xs:element>
+                           </xs:sequence>
+                        </xs:complexType>
+                     </xs:element>
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<trips 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xml="http://www.w3.org/XML/1998/namespace"
+>
+    <trip>
+        <number>151516</number>
+        <startAddress xml:lang="en">2427 Public Works Drive</startAddress>
+        <endAddress xml:lang="en">4439 Hamilton Drive</endAddress>
+        <price>155</price>
+        <URI>https://trips.cz/trip/151516</URI>
+    </trip>
+    <trip>
+        <number>97889</number>
+        <startAddress xml:lang="en">862 Ward Road</startAddress>
+        <endAddress xml:lang="en">77 Thakurova</endAddress>
+        <price>1545</price>
+        <URI>https://trips.cz/trip/97889</URI>
+    </trip>
+    <trip>
+        <number>5115155</number>
+        <startAddress xml:lang="en">3351 Longview Avenue</startAddress>
+        <endAddress xml:lang="en">3351 Longview Avenue</endAddress>
+        <price>1</price>
+        <URI>https://trips.cz/trip/5115155</URI>
+    </trip>
+    <trip>
+        <number>111111</number>
+        <startAddress xml:lang="en">958 Tully Street</startAddress>
+        <endAddress xml:lang="en">4494 West Side Avenue</endAddress>
+        <price>69</price>
+        <URI>https://trips.cz/trip/111111</URI>
+    </trip>
+    <trip>
+        <number>98555</number>
+        <startAddress xml:lang="en">23097 Grasselli Street</startAddress>
+        <endAddress xml:lang="en">1141 Gordon Street</endAddress>
+        <price>101</price>
+        <URI>https://trips.cz/trip/98555</URI>
+    </trip>
+    <trip>
+        <number>5151</number>
+        <startAddress xml:lang="en">2240 Kinney Street</startAddress>
+        <endAddress xml:lang="en">3899 Little Street</endAddress>
+        <price>101</price>
+        <URI>https://trips.cz/trip/5151</URI>
+    </trip>
+    <trip>
+        <number>99899</number>
+        <startAddress xml:lang="en">1857 Courtright Street</startAddress>
+        <endAddress xml:lang="en">2157 Southern Avenue</endAddress>
+        <price>101</price>
+        <URI>https://trips.cz/trip/99899</URI>
+    </trip>
+
+</trips>

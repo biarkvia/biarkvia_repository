@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<taxiServices 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xml="http://www.w3.org/XML/1998/namespace"
+>
+    <taxiService>
+        <name xml:lang="en">Uber</name>
+        <phoneNumbers>
+            <phoneNumber xml:lang="en">999558642</phoneNumber>
+        </phoneNumbers>
+        <provides>
+            <city>
+                <name xml:lang="en">Minsk</name>
+                <uri>https://cities.cz/city/Minsk</uri>
+            </city>
+        </provides>
+        <uri>https://taxiServices.cz/taxiService/Uber</uri>
+    </taxiService>
+    <taxiService>
+        <name xml:lang="en">Diamond</name>
+        <phoneNumbers>
+            <phoneNumber xml:lang="en">914807900</phoneNumber>
+        </phoneNumbers>
+        <provides>
+            <city>
+                <name xml:lang="en">Amsterdam</name>
+                <uri>https://cities.cz/city/Amsterdam</uri>
+            </city>
+        </provides>
+        <uri>https://taxiServices.cz/taxiService/Diamond</uri>
+    </taxiService>
+    <taxiService>
+        <name xml:lang="en">777</name>
+        <phoneNumbers>
+            <phoneNumber xml:lang="en">777</phoneNumber>
+        </phoneNumbers>
+        <provides>
+            <city>
+                <name xml:lang="en">Prague</name>
+                <uri>https://cities.cz/city/Prague</uri>
+            </city>
+        </provides>
+        <uri>https://taxiServices.cz/taxiService/777</uri>
+    </taxiService>
+    <taxiService>
+        <name xml:lang="en">7788</name>
+        <phoneNumbers>
+            <phoneNumber xml:lang="en">778800000</phoneNumber>
+        </phoneNumbers>
+        <provides>
+            <city>
+                <name xml:lang="en">Berlin</name>
+                <uri>https://cities.cz/city/Berlin</uri>
+            </city>
+        </provides>
+        <uri>https://taxiServices.cz/taxiService/7788</uri>
+    </taxiService>
+    <taxiService>
+        <name xml:lang="en">AirportTaxis</name>
+        <phoneNumbers>
+            <phoneNumber xml:lang="en">112223334</phoneNumber>
+        </phoneNumbers>
+        <provides>
+            <city>
+                <name xml:lang="en">Rome</name>
+                <uri>https://cities.cz/city/Rome</uri>
+            </city>
+        </provides>
+        <uri>https://taxiServices.cz/taxiService/AirportTaxis</uri>
+    </taxiService>
+    <taxiService>
+        <name xml:lang="en">SafetyCab</name>
+        <phoneNumbers>
+            <phoneNumber xml:lang="en">211</phoneNumber>
+        </phoneNumbers>
+        <provides>
+            <city>
+                <name xml:lang="en">Berlin</name>
+                <uri>https://cities.cz/city/Berlin</uri>
+            </city>
+        </provides>
+        <uri>https://taxiServices.cz/taxiService/SafetyCab</uri>
+    </taxiService>
+</taxiServices>

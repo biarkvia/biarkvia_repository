@@ -1,0 +1,3 @@
+(: How many drivers have a rating of 5? :)
+
+/drivers/driver[rating = 5]

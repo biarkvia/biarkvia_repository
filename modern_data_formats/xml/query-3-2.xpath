@@ -1,0 +1,3 @@
+(: Check how many taxi services has a driver with name Nick :)
+
+count(/drivers/driver[givenName='Nick']/collaborate/taxiService)

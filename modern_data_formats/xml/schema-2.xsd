@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:city="https://cities.cz/city/"
+>
+<xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+<xs:import namespace="https://cities.cz/city/" schemaLocation="schema-1.xsd"></xs:import>
+    <xs:element name="taxiService">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name">
+                    <xs:complexType>
+                       <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                             <xs:attribute ref="xml:lang" />
+                          </xs:extension>
+                       </xs:simpleContent>
+                    </xs:complexType>
+                 </xs:element>
+                 <xs:element name="phoneNumber" minOccurs="0" maxOccurs="unbounded">
+                     <xs:complexType>
+                        <xs:simpleContent>
+                              <xs:extension base="xs:string">
+                                 <xs:attribute ref="xml:lang" />
+                              </xs:extension>
+                        </xs:simpleContent>
+                     </xs:complexType>
+                  </xs:element>
+                 <xs:element ref="city:city"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

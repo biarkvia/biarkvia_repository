@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<drivers 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xml="http://www.w3.org/XML/1998/namespace"
+>
+    <driver>
+        <nickname xml:lang="en">capybardak</nickname>
+        <givenName xml:lang="en">Nick</givenName>
+        <familyName xml:lang="en">Jefferson</familyName>
+        <rating>5</rating>
+        <hasTrip>
+            <trip>
+                <number>151516</number>
+                <startAddress xml:lang="en">2427 Public Works Drive</startAddress>
+                <endAddress xml:lang="en">4439 Hamilton Drive</endAddress>
+                <price>155</price>
+                <uri>https://trips.cz/trip/151516</uri>
+            </trip>
+        </hasTrip>
+        <performs>
+            <tripType>
+                <name xml:lang="en">ComfortPlus</name>
+                <uri>https://tripTypes.cz/tripType/ComfortPlus</uri>
+            </tripType>
+        </performs>
+        <collaborate>
+            <taxiService>
+                <name xml:lang="en">Uber</name>
+                <phoneNumbers>
+                    <phoneNumber xml:lang="en">999558642</phoneNumber>
+                </phoneNumbers>
+                <provides>
+                    <city>
+                        <name xml:lang="en">Minsk</name>
+                        <uri>https://cities.cz/city/Minsk</uri>
+                    </city>
+                </provides>
+                <uri>https://taxiServices.cz/taxiService/Uber</uri>
+            </taxiService>
+        </collaborate>
+        <uri>https://drivers.cz/driver/capybardak</uri>
+    </driver>
+
+    <driver>
+        <nickname xml:lang="en">TerranceHawkins</nickname>
+        <givenName xml:lang="en">Terrance</givenName>
+        <familyName xml:lang="en">Hawkins</familyName>
+        <rating>5</rating>
+        <hasTrip>
+            <trip>
+                <number>97889</number>
+                <startAddress xml:lang="en">862 Ward Road</startAddress>
+                <endAddress xml:lang="en">77 Thakurova</endAddress>
+                <price>1545</price>
+                <uri>https://trips.cz/trip/97889</uri>
+            </trip>
+        </hasTrip>
+        <performs>
+            <tripType>
+                <name xml:lang="en">ComfortPlus</name>
+                <uri>https://tripTypes.cz/tripType/ComfortPlus</uri>
+            </tripType>
+        </performs>
+        <collaborate>
+            <taxiService>
+                <name xml:lang="en">777</name>
+                <phoneNumbers>
+                    <phoneNumber xml:lang="en">777</phoneNumber>
+                </phoneNumbers>
+                <provides>
+                    <city>
+                        <name xml:lang="en">Prague</name>
+                        <uri>https://cities.cz/city/Prague</uri>
+                    </city>
+                </provides>
+                <uri>https://taxiServices.cz/taxiService/777</uri>
+            </taxiService>
+        </collaborate>
+        <uri>https://drivers.cz/driver/TerranceHawkins</uri>
+    </driver>
+
+    <driver>
+        <nickname xml:lang="en">vasridiczemrel</nickname>
+        <givenName xml:lang="en">Umer</givenName>
+        <familyName xml:lang="en">Umbekov</familyName>
+        <rating>5</rating>
+        <hasTrip>
+            <trip>
+                <number>5115155</number>
+                <startAddress xml:lang="en">3351 Longview Avenue</startAddress>
+                <endAddress xml:lang="en">3351 Longview Avenue</endAddress>
+                <price>1</price>
+                <uri>https://trips.cz/trip/5115155</uri>
+            </trip>
+        </hasTrip>
+        <performs>
+            <tripType>
+                <name xml:lang="en">Electro</name>
+                <uri>https://tripTypes.cz/tripType/Electro</uri>
+            </tripType>
+        </performs>
+        <collaborate>
+            <taxiService>
+                <name xml:lang="en">Diamond</name>
+                <phoneNumbers>
+                    <phoneNumber xml:lang="en">914807900</phoneNumber>
+                </phoneNumbers>
+                <provides>
+                    <city>
+                        <name xml:lang="en">Amsterdam</name>
+                        <uri>https://cities.cz/city/Amsterdam</uri>
+                    </city>
+                </provides>
+                <uri>https://taxiServices.cz/taxiService/Diamond</uri>
+            </taxiService>
+        </collaborate>
+        <uri>https://drivers.cz/driver/vasridiczemrel</uri>
+    </driver>
+
+    <driver>
+        <nickname xml:lang="en">collins000</nickname>
+        <givenName xml:lang="en">Jose</givenName>
+        <familyName xml:lang="en">Collins</familyName>
+        <rating>2</rating>
+        <hasTrip>
+            <trip>
+                <number>111111</number>
+                <startAddress xml:lang="en">958 Tully Street</startAddress>
+                <endAddress xml:lang="en">4494 West Side Avenue</endAddress>
+                <price>69</price>
+                <uri>https://trips.cz/trip/111111</uri>
+            </trip>
+        </hasTrip>
+        <performs>
+            <tripType>
+                <name xml:lang="en">Business</name>
+                <uri>https://tripTypes.cz/tripType/Business</uri>
+            </tripType>
+        </performs>
+        <collaborate>
+            <taxiService>
+                <name xml:lang="en">777</name>
+                <phoneNumbers>
+                    <phoneNumber xml:lang="en">777</phoneNumber>
+                </phoneNumbers>
+                <provides>
+                    <city>
+                        <name xml:lang="en">Prague</name>
+                        <uri>https://cities.cz/city/Prague</uri>
+                    </city>
+                </provides>
+                <uri>https://taxiServices.cz/taxiService/777</uri>
+            </taxiService>
+        </collaborate>
+        <uri>https://drivers.cz/driver/collins000</uri>
+    </driver>
+
+    <driver>
+        <nickname xml:lang="en">bobr</nickname>
+        <givenName xml:lang="en">Jazau</givenName>
+        <familyName xml:lang="en">Mahnietski</familyName>
+        <rating>4</rating>
+        <hasTrip>
+            <trip>
+                <number>98555</number>
+                <startAddress xml:lang="en">23097 Grasselli Street</startAddress>
+                <endAddress xml:lang="en">1141 Gordon Street</endAddress>
+                <price>101</price>
+                <uri>https://trips.cz/trip/98555</uri>
+            </trip>
+        </hasTrip>
+        <performs>
+            <tripType>
+                <name xml:lang="en">Business</name>
+                <uri>https://tripTypes.cz/tripType/Business</uri>
+            </tripType>
+        </performs>
+        <collaborate>
+            <taxiService>
+                <name xml:lang="en">AirportTaxis</name>
+                <phoneNumbers>
+                    <phoneNumber xml:lang="en">112223334</phoneNumber>
+                </phoneNumbers>
+                <provides>
+                    <city>
+                        <name xml:lang="en">Rome</name>
+                        <uri>https://cities.cz/city/Rome</uri>
+                    </city>
+                </provides>
+                <uri>https://taxiServices.cz/taxiService/AirportTaxis</uri>
+            </taxiService>
+        </collaborate>
+        <uri>https://drivers.cz/driver/bobr</uri>
+    </driver>
+
+    <driver>
+        <nickname xml:lang="en">gregloy</nickname>
+        <givenName xml:lang="en">Gregorz</givenName>
+        <familyName xml:lang="en">Lloyd</familyName>
+        <rating>5</rating>
+        <hasTrip>
+            <trip>
+                <number>5151</number>
+                <startAddress xml:lang="en">2240 Kinney Street</startAddress>
+                <endAddress xml:lang="en">3899 Little Street</endAddress>
+                <price>101</price>
+                <uri>https://trips.cz/trip/5151</uri>
+            </trip>
+        </hasTrip>
+        <performs>
+            <tripType>
+                <name xml:lang="en">Business</name>
+                <uri>https://tripTypes.cz/tripType/Business</uri>
+            </tripType>
+        </performs>
+        <collaborate>
+            <taxiService>
+                <name xml:lang="en">Uber</name>
+                <phoneNumbers>
+                    <phoneNumber xml:lang="en">999558642</phoneNumber>
+                </phoneNumbers>
+                <provides>
+                    <city>
+                        <name xml:lang="en">Minsk</name>
+                        <uri>https://cities.cz/city/Minsk</uri>
+                    </city>
+                </provides>
+                <uri>https://taxiServices.cz/taxiService/Uber</uri>
+            </taxiService>
+        </collaborate>
+        <uri>https://drivers.cz/driver/gregloy</uri>
+    </driver>
+
+    <driver>
+        <nickname xml:lang="en">gladvalakas</nickname>
+        <givenName xml:lang="en">Valero</givenName>
+        <familyName xml:lang="en">Zhmyshenko</familyName>
+        <rating>1</rating>
+        <hasTrip>
+            <trip>
+                <number>99899</number>
+                <startAddress xml:lang="en">1857 Courtright Street</startAddress>
+                <endAddress xml:lang="en">2157 Southern Avenue</endAddress>
+                <price>101</price>
+                <uri>https://trips.cz/trip/99899</uri>
+            </trip>
+        </hasTrip>
+        <performs>
+            <tripType>
+                <name xml:lang="en">Economy</name>
+                <uri>https://tripTypes.cz/tripType/Economy</uri>
+            </tripType>
+        </performs>
+        <collaborate>
+            <taxiService>
+                <name xml:lang="en">Uber</name>
+                <phoneNumbers>
+                    <phoneNumber xml:lang="en">999558642</phoneNumber>
+                </phoneNumbers>
+                <provides>
+                    <city>
+                        <name xml:lang="en">Minsk</name>
+                        <uri>https://cities.cz/city/Minsk</uri>
+                    </city>
+                </provides>
+                <uri>https://taxiServices.cz/taxiService/Uber</uri>
+            </taxiService>
+        </collaborate>
+        <uri>https://drivers.cz/driver/gladvalakas</uri>
+    </driver>
+    
+</drivers>

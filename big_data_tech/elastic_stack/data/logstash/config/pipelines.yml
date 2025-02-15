@@ -1,0 +1,6 @@
+- pipeline.id: list-of-songs-pipeline
+  path.config: "/usr/share/logstash/pipeline/list_of_songs.conf"
+- pipeline.id: tiktok-songs-pipeline
+  path.config: "/usr/share/logstash/pipeline/tiktok_songs.conf"
+- pipeline.id: top-1000-songs-pipeline
+  path.config: "/usr/share/logstash/pipeline/top_1000_songs.conf"

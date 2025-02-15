@@ -1,0 +1,33 @@
+GET list_of_songs/_search
+{
+  "query": {
+    "match": {
+      "year": {
+        "query": "1999"
+      }
+    }
+  }
+}
+
+GET list_of_songs/_search
+{
+  "query": {
+    "match": {
+      "artists_name": {
+        "query": "Rage Against The Machine"
+      }
+    }
+  }
+}
+
+GET tiktok_songs/_search
+{
+  "query": {
+    "range": {
+      "duration_ms": {
+        "gte": 200000,
+        "lte": 300000
+      }
+    }
+  }
+}

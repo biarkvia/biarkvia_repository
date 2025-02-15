@@ -1,0 +1,102 @@
+# Fetch All Workers' Profiles
+GET http://localhost:8000/api/employees
+Accept: application/json
+
+###
+
+# Retrieve Specific Worker Details
+GET http://localhost:8000/api/employees/1
+Accept: application/json
+
+###
+
+# Register a New Worker
+POST http://localhost:8000/api/employees
+Content-Type: application/json
+Accept: application/json
+
+{
+  "firstName": "Alice",
+  "lastName": "Wonderland",
+  "email": "alice.wonderland@example.com",
+  "phone": "+420555667788",
+  "website": "http://alice-wonderland.com",
+  "description": "Expert in creative problem-solving"
+}
+
+###
+
+# Update Worker's Information
+PUT http://localhost:8000/api/employees/1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "firstName": "Alice Updated",
+  "lastName": "Wonderland Updated",
+  "email": "alice.updated@example.com",
+  "phone": "+420987654321",
+  "website": "http://updated-alice.com",
+  "description": "Updated description of creative expert"
+}
+
+###
+
+# Remove Worker from Records
+DELETE http://localhost:8000/api/employees/1
+Accept: application/json
+
+###
+
+# Fetch All Financial Records of a Worker
+GET http://localhost:8000/api/employees/1/accounts
+Accept: application/json
+
+###
+
+# Add New Financial Record for a Worker
+POST http://localhost:8000/api/employees/1/accounts
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Savings Account",
+  "type": "Gold",
+  "expiration": "2025-06-30"
+}
+
+###
+
+# Modify a Financial Record
+PUT http://localhost:8000/api/employees/1/accounts/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Updated Savings Account",
+  "type": "Silver",
+  "expiration": "2026-12-31"
+}
+
+###
+
+# Delete a Financial Record
+DELETE http://localhost:8000/api/employees/1/accounts/1
+Accept: application/json
+
+###
+
+# Assign New Responsibilities to a Worker
+POST http://localhost:8000/api/employees/1/roles
+Content-Type: application/json
+Accept: application/json
+
+{
+  "roleId": 3
+}
+
+###
+
+# Revoke Responsibilities from a Worker
+DELETE http://localhost:8000/api/employees/1/roles/3
+Accept: application/json

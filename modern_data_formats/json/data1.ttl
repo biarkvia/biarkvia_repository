@@ -1,0 +1,16 @@
+@prefix ex: <http://example.org/vocabulary/> .
+
+<https://cities.cz/city/Minsk> a ex:city ;
+    ex:cityName "Minsk"@en .
+
+<https://cities.cz/city/Amsterdam> a ex:city ;
+    ex:cityName "Amsterdam"@en .
+
+<https://cities.cz/city/Prague> a ex:city ;
+    ex:cityName "Prague"@en .
+
+<https://cities.cz/city/Rome> a ex:city ;
+    ex:cityName "Rome"@en .
+
+<https://cities.cz/city/Berlin> a ex:city ;
+    ex:cityName "Berlin"@en .

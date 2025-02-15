@@ -1,0 +1,164 @@
+1.
+db.songs.find({ "id_songwriter": 38 })
+This query fetches all songs written by the songwriter with the ID 38.
+
+2.
+db.songs.findOne({ "id_song": 2 })
+This query retrieves the details of the song with the ID 2.
+
+3.
+db.labels.find({ "country_label": "Brazil" })
+This fetches all labels located in Brazil.
+
+4.
+db.songwriters.find({ "age_songwriter": { $gt: 60 } })
+This query retrieves all songwriters over the age of 60.
+
+5.
+db.songs.aggregate([
+  {
+    $lookup: {
+      from: "songwriters",
+      localField: "id_songwriter",
+      foreignField: "id_songwriter",
+      as: "songwriter_details"
+    }
+  }
+])
+This query performs a lookup to combine song and songwriter information.
+
+6.
+db.labels.aggregate([
+  {
+    $lookup: {
+      from: "songs",
+      localField: "id_label",
+      foreignField: "id_label",
+      as: "songs"
+    }
+  },
+  {
+    $match: { "country_label": "Brazil" }
+  }
+])
+This query fetches labels from Brazil and their associated songs.
+
+7.
+const date = new Date("2020-01-01");
+db.songs.find({ "release_date_song": { $gt: date } })
+This fetches songs released after the specified date.
+
+8.
+const startDate = new Date("2010-01-01");
+const endDate = new Date("2020-12-31");
+
+db.songs.find({
+  "release_date_song": {
+    $gte: startDate,
+    $lte: endDate
+  }
+})
+This query fetches songs released between the specified dates.
+
+9.
+db.songs.find().sort({ "release_date_song": 1 }).limit(1)
+db.songs.find().sort({ "release_date_song": -1 }).limit(1)
+These queries retrieve the oldest and newest songs by sorting based on release date.
+
+10.
+db.songs.aggregate([
+  {
+    $group: {
+      _id: "$id_songwriter",
+      totalSongs: { $sum: 1 }
+    }
+  }
+])
+This query counts the number of songs written by each songwriter.
+
+11.
+db.labels.aggregate([
+  {
+    $lookup: {
+      from: "songs",
+      localField: "id_label",
+      foreignField: "id_label",
+      as: "songs"
+    }
+  },
+  {
+    $project: {
+      label_name: "$name_label",
+      totalSongs: { $size: "$songs" }
+    }
+  },
+  {
+    $sort: { "totalSongs": -1 }
+  },
+  {
+    $limit: 1
+  }
+])
+This query identifies the label with the highest number of songs.
+
+12.
+db.songwriters.aggregate([
+  {
+    $group: {
+      _id: null,
+      avgAge: { $avg: "$age_songwriter" }
+    }
+  }
+])
+This query calculates the average age of all songwriters.
+
+13.
+db.labels.aggregate([
+  {
+    $lookup: {
+      from: "songs",
+      localField: "id_label",
+      foreignField: "id_label",
+      as: "songs"
+    }
+  },
+  {
+    $project: {
+      label_name: "$name_label",
+      totalSongs: { $size: "$songs" }
+    }
+  },
+  {
+    $match: { "totalSongs": { $gt: 100 } }
+  }
+])
+This query identifies label names with more than 100 songs.
+
+14. 
+db.songwriters.aggregate([
+  {
+    $sort: { "age_songwriter": 1 }
+  },
+  {
+    $limit: 1
+  }
+])
+This query will find information about the youngest songwriter of the song.
+
+15.
+const country = "Brazil";
+const startDate = new Date("2010-01-01");
+const endDate = new Date("2020-12-31"); 
+
+db.songs.find({
+  "release_date_song": {
+    $gte: startDate,
+    $lte: endDate
+  }
+}).forEach(song => {
+  const label = db.labels.findOne({ "id_label": song.id_label });
+  if (label && label.country_label === country) {
+    printjson(song);
+  }
+});
+This query will find all songwriters written for a particular label.

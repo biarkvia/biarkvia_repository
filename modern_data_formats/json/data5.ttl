@@ -1,0 +1,19 @@
+@prefix ex: <http://example.org/vocabulary/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://tripTypes.cz/tripType/ComfortPlus> a ex:tripType ;
+    ex:tripTypeName "ComfortPlus"@en ;
+    ex:hasTrips <https://trips.cz/trip/151516>, <https://trips.cz/trip/97889> .
+
+<https://tripTypes.cz/tripType/Economy> a ex:tripType ;
+    ex:tripTypeName "Economy"@en ;
+    ex:hasTrips <https://trips.cz/trip/99899> .
+
+<https://tripTypes.cz/tripType/Business> a ex:tripType ;
+    ex:tripTypeName "Business"@en ;
+    ex:hasTrips <https://trips.cz/trip/111111>, <https://trips.cz/trip/98555>, <https://trips.cz/trip/5151> .
+
+<https://tripTypes.cz/tripType/Electro> a ex:tripType ;
+    ex:tripTypeName "Electro"@en ;
+    ex:hasTrips <https://trips.cz/trip/5115155> .

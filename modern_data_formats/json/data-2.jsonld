@@ -1,0 +1,80 @@
+
+{
+    "@context":{
+       "ex":"http://example.org/vocabulary/",
+       "rdfs":"http://www.w3.org/2000/01/rdf-schema#",
+       "rdf":"http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+       "type":"@type",
+       "city":"ex:city",
+       "taxiService":"ex:taxiService",
+       "uri":"@id",
+       "taxiServiceName":{
+          "@id":"ex:taxiServiceName",
+          "@container":"@language"
+       },
+       "provides": {
+         "@id": "city"
+       },
+       "phoneNumber": {
+          "@id": "ex:phoneNumber",
+          "@container": "@set"
+       }
+    },
+    "@graph":[
+       {
+          "@type":"taxiService",
+          "@id":"https://taxiservices.cz/taxiService/Uber",
+          "taxiServiceName":{
+             "en":"Uber"
+          },
+          "provides":"https://cities.cz/city/Minsk",
+          "phoneNumber":["999558642"]
+       },
+       {
+          "@type":"taxiService",
+          "@id":"https://taxiservices.cz/taxiService/Diamond",
+          "taxiServiceName":{
+             "en":"Diamond"
+          },
+          "provides":"https://cities.cz/city/Amsterdam",
+          "phoneNumber":["914807900"]
+       },
+       {
+          "@type":"taxiService",
+          "@id":"https://taxiservices.cz/taxiService/777",
+          "taxiServiceName":{
+             "en":"777"
+          },
+          "provides":"https://cities.cz/city/Prague",
+          "phoneNumber":["777"]
+       },
+       {
+          "@type":"taxiService",
+          "@id":"https://taxiservices.cz/taxiService/7788",
+          "taxiServiceName":{
+             "en":"7788"
+          },
+          "provides":"https://cities.cz/city/Berlin",
+          "phoneNumber":["778800000"]
+       },
+       {
+          "@type":"taxiService",
+          "@id":"https://taxiservices.cz/taxiService/AirportTaxis",
+          "taxiServiceName":{
+             "en":"AirportTaxis"
+          },
+          "provides":"https://cities.cz/city/Rome",
+          "phoneNumber":["112223334"]
+       },
+       {
+          "@type":"taxiService",
+          "@id":"https://taxiservices.cz/taxiService/SafetyCab",
+          "taxiServiceName":{
+             "en":"SafetyCab"
+          },
+          "provides":"https://cities.cz/city/Berlin",
+          "phoneNumber":["211"]
+          
+       }
+    ]
+}

@@ -1,0 +1,21 @@
+[{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "http://example.com/tripType.schema.json",
+    "title": "tripType",
+    "description": "Representation of a tripType",
+    "type": "object",
+    "properties": {
+        "tripTypeName": {
+            "description": "Name of type of trip",
+            "type": "string"
+        },
+        "hasTrips": {
+            "description": "Trip type has several trips",
+            "type": "array",
+            "items": {
+                "$ref": "http://example.com/trip.schema.json"
+            }
+        }
+    },
+    "required": ["tripTypeName", "hasTrips"]
+}]

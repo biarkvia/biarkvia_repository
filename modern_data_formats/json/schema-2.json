@@ -1,0 +1,26 @@
+[{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "http://example.com/taxiService.schema.json",
+    "title": "Store",
+    "description": "Representation of a taxiService with drivers",
+    "type": "object",
+    "properties": {
+        "taxiServiceName": {
+            "description": "Name of the taxiService",
+            "type": "string"
+        },
+        "phoneNumber": {
+            "description": "Phone numbers of the taxiService",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "pattern": "^[0-9]+$"
+            }
+        },
+        "provides": {
+            "description": "City where the taxi service provides",
+            "$ref": "http://example.com/city.schema.json"
+        }
+    },
+    "required": ["taxiServiceName", "phoneNumber", "provides"]
+}]

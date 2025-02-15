@@ -1,0 +1,1 @@
+{ "drivers": [ .["@graph"][]? | select(.rating?[] == 5) ] }

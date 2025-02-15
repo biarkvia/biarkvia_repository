@@ -1,0 +1,66 @@
+@prefix ex: <http://example.org/vocabulary/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://drivers.cz/driver/capybardak> a ex:driver ;
+    ex:trip <https://trips.cz/trip/151516> ;
+    ex:taxiService <https://taxiServices.cz/taxiService/7788> ;
+    ex:nickname "capybardak"@en ;
+    ex:givenName "Nick"@en ;
+    ex:familyName "Jefferson"@en ;
+    ex:tripType <https://tripTypes.cz/tripType/ComfortPlus> ;
+    ex:rating ( 5 ) .
+
+<https://drivers.cz/driver/TerranceHawkins> a ex:driver ;
+    ex:trip <https://trips.cz/trip/97889> ;
+    ex:taxiService <https://taxiServices.cz/taxiService/777> ;
+    ex:nickname "TerranceHawkins"@en ;
+    ex:givenName "Terrance"@en ;
+    ex:familyName "Hawkins"@en ;
+    ex:tripType <https://tripTypes.cz/tripType/ComfortPlus> ;
+    ex:rating ( 5 ) .
+
+<https://drivers.cz/driver/vasridiczemrel> a ex:driver ;
+    ex:trip <https://trips.cz/trip/5115155> ;
+    ex:taxiService <https://taxiServices.cz/taxiService/Diamond> ;
+    ex:nickname "vasridiczemrel"@en ;
+    ex:givenName "Umer"@en ;
+    ex:familyName "Umbekov"@en ;
+    ex:tripType <https://tripTypes.cz/tripType/Electro> ;
+    ex:rating ( 5 ) .
+
+<https://drivers.cz/driver/collins000> a ex:driver ;
+    ex:trip <https://trips.cz/trip/111111> ;
+    ex:taxiService <https://taxiServices.cz/taxiService/777> ;
+    ex:nickname "collins000"@en ;
+    ex:givenName "Jose"@en ;
+    ex:familyName "Collins"@en ;
+    ex:tripType <https://tripTypes.cz/tripType/Business> ;
+    ex:rating ( 2 ) .
+
+<https://drivers.cz/driver/bobr> a ex:driver ;
+    ex:trip <https://trips.cz/trip/98555> ;
+    ex:taxiService <https://taxiServices.cz/taxiService/AirportTaxis> ;
+    ex:nickname "bobr"@en ;
+    ex:givenName "Jazau"@en ;
+    ex:familyName "Mahnietski"@en ;
+    ex:tripType <https://tripTypes.cz/tripType/Business> ;
+    ex:rating ( 4 ) .
+
+<https://drivers.cz/driver/gregloy> a ex:driver ;
+    ex:trip <https://trips.cz/trip/5151> ;
+    ex:taxiService <https://taxiServices.cz/taxiService/Uber> ;
+    ex:nickname "gregloy"@en ;
+    ex:givenName "Gregorz"@en ;
+    ex:familyName "Lloyd"@en ;
+    ex:tripType <https://tripTypes.cz/tripType/Business> ;
+    ex:rating ( 5 ) .
+
+<https://drivers.cz/driver/gladvalakas> a ex:driver ;
+    ex:trip <https://trips.cz/trip/99899> ;
+    ex:taxiService <https://taxiServices.cz/taxiService/Uber> ;
+    ex:nickname "gladvalakas"@en ;
+    ex:givenName "Valero"@en ;
+    ex:familyName "Zhmyshenko"@en ;
+    ex:tripType <https://tripTypes.cz/tripType/Economy> ;
+    ex:rating ( 1 ) .

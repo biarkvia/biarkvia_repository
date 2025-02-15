@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "http://example.com/trip.schema.json",
+    "title": "trip",
+    "description": "Representation of a trip assigned to a driver",
+    "type": "object",
+    "properties": {
+        "number": {
+            "description": "Unique number for the trip",
+            "type": "integer",
+            "minimum": 0
+        },
+        "startAddress": {
+            "description": "Starting point of trip",
+            "type": "string"
+        },
+        "endAddress": {
+            "description": "Ending point of trip",
+            "type": "string"
+        },
+        "price": {
+            "description": "Price of trip",
+            "type": "integer",
+            "minimum": 0
+        }
+    },
+    "required": ["number", "startAddress", "endAddress", "price"]
+}

@@ -1,0 +1,204 @@
+{
+    "@context": {
+        "ex": "http://example.org/vocabulary/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "type": "@type",
+        "driver": "ex:driver",
+        "taxiService": "ex:taxiService",
+        "trip": "ex:trip",
+        "tripType": "ex:tripType",
+        "uri": "@id",
+        "nickname": {
+            "@id": "ex:nickname",
+            "@container": "@language"
+        },
+        "givenName": {
+            "@id": "ex:givenName",
+            "@container": "@language"
+        },
+        "familyName": {
+            "@id": "ex:familyName",
+            "@container": "@language"
+        },
+        "rating": {
+            "@id": "ex:rating",
+            "@container": "@list"
+        },
+        "collaborate": {
+            "@id": "ex:collaborate",
+            "@type": "@id"
+        },
+        "hasTrip": {
+            "@id": "ex:hasTrip",
+            "@type": "@id"
+        },
+        "performs": {
+            "@id": "ex:performs",
+            "@type": "@id"
+        }
+    },
+    "@graph":[
+       {
+          "@type":"driver",
+          "@id":"https://drivers.cz/driver/capybardak",
+          "nickname":{
+             "en":"capybardak"
+          },
+          "givenName":{
+             "en":"Nick"
+          },
+          "familyName":{
+             "en":"Jefferson"
+          },
+          "rating": [5],
+          "hasTrip":{
+             "@id":"https://trips.cz/trip/151516"
+          },
+          "performs":{
+             "@id":"https://tripTypes.cz/tripType/ComfortPlus"
+          },
+          "collaborate":{
+             "@id":"https://taxiServices.cz/taxiService/7788"
+          }
+       },
+       {
+          "@type":"driver",
+          "@id":"https://drivers.cz/driver/TerranceHawkins",
+          "nickname":{
+             "en":"TerranceHawkins"
+          },
+          "givenName":{
+             "en":"Terrance"
+          },
+          "familyName":{
+             "en":"Hawkins"
+          },
+          "rating": [5],
+          "hasTrip":{
+             "@id":"https://trips.cz/trip/97889"
+          },
+          "performs":{
+             "@id":"https://tripTypes.cz/tripType/ComfortPlus"
+          },
+          "collaborate":{
+             "@id":"https://taxiServices.cz/taxiService/777"
+          }
+       },
+       {
+          "@type":"driver",
+          "@id":"https://drivers.cz/driver/UmerUmbekov",
+          "nickname":{
+             "en":"vasridiczemrel"
+          },
+          "givenName":{
+             "en":"Umer"
+          },
+          "familyName":{
+             "en":"Umbekov"
+          },
+          "rating": [5],
+          "hasTrip":{
+             "@id":"https://trips.cz/trip/5115155"
+          },
+          "performs":{
+             "@id":"https://tripTypes.cz/tripType/Electro"
+          },
+          "collaborate":{
+             "@id":"https://taxiServices.cz/taxiService/Diamond"
+          }
+       },
+       {
+          "@type":"driver",
+          "@id":"https://drivers.cz/driver/JoseCollins",
+          "nickname":{
+             "en":"collins000"
+          },
+          "givenName":{
+             "en":"Jose"
+          },
+          "familyName":{
+             "en":"Collins"
+          },
+          "rating": [2],
+          "hasTrip":{
+             "@id":"https://trips.cz/trip/111111"
+          },
+          "performs":{
+             "@id":"https://tripTypes.cz/tripType/Business"
+          },
+          "collaborate":{
+             "@id":"https://taxiServices.cz/taxiService/777"
+          }
+       },
+       {
+          "@type":"driver",
+          "@id":"https://drivers.cz/driver/JazauMahnietski",
+          "nickname":{
+             "en":"bobr"
+          },
+          "givenName":{
+             "en":"Jazau"
+          },
+          "familyName":{
+             "en":"Mahnietski"
+          },
+          "rating": [4],
+          "hasTrip":{
+             "@id":"https://trips.cz/trip/98555"
+          },
+          "performs":{
+             "@id":"https://tripTypes.cz/tripType/Business"
+          },
+          "collaborate":{
+             "@id":"https://taxiServices.cz/taxiService/AirportTaxis"
+          }
+       },
+       {
+         "@type":"driver",
+         "@id":"https://drivers.cz/driver/GregorzLloyd",
+         "nickname":{
+             "en":"gregloy"
+          },
+         "givenName":{
+            "en":"Gregorz"
+         },
+         "familyName":{
+            "en":"Lloyd"
+         },
+         "rating": [5],
+         "hasTrip":{
+            "@id":"https://trips.cz/trip/5151"
+         },
+         "performs":{
+            "@id":"https://tripTypes.cz/tripType/Business"
+         },
+         "collaborate":{
+            "@id":"https://taxiServices.cz/taxiService/Uber"
+         }
+      },
+      {
+         "@type":"driver",
+         "@id":"https://drivers.cz/driver/ValeroZhmyshenko",
+         "nickname":{
+             "en":"gladvalakas"
+          },
+         "givenName":{
+            "en":"Valero"
+         },
+         "familyName":{
+            "en":"Zhmyshenko"
+         },
+         "rating": [1],
+         "hasTrip":{
+            "@id":"https://trips.cz/trip/99899"
+         },
+         "performs":{
+            "@id":"https://tripTypes.cz/tripType/Economy"
+         },
+         "collaborate":{
+            "@id":"https://taxiServices.cz/taxiService/Uber"
+         }
+      }
+    ]
+ }

@@ -1,0 +1,63 @@
+{
+   "@context": {
+      "ex": "http://example.org/vocabulary/",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "type": "@type",
+      "tripType": "ex:tripType",
+      "uri": "@id",
+      "tripTypeName": {
+         "@id": "ex:tripTypeName",
+         "@container": "@language"
+      },
+      "hasTrips": {
+         "@id": "ex:hasTrips",
+         "@type": "@id"
+      }
+   },
+   "@graph": [
+      {
+         "@type": "tripType",
+         "@id": "https://tripTypes.cz/tripType/ComfortPlus",
+         "tripTypeName": {
+            "en": "ComfortPlus"
+         },
+         "hasTrips": [
+            "https://trips.cz/trip/151516",
+            "https://trips.cz/trip/97889"
+         ]
+      },
+      {
+         "@type": "tripType",
+         "@id": "https://tripTypes.cz/tripType/Economy",
+         "tripTypeName": {
+            "en": "Economy"
+         },
+         "hasTrips": [
+            "https://trips.cz/trip/99899"
+         ]
+      },
+      {
+         "@type": "tripType",
+         "@id": "https://tripTypes.cz/tripType/Business",
+         "tripTypeName": {
+            "en": "Business"
+         },
+         "hasTrips": [
+            "https://trips.cz/trip/111111",
+            "https://trips.cz/trip/98555",
+            "https://trips.cz/trip/5151"
+         ]
+      },
+      {
+         "@type": "tripType",
+         "@id": "https://tripTypes.cz/tripType/Electro",
+         "tripTypeName": {
+            "en": "Electro"
+         },
+         "hasTrips": [
+            "https://trips.cz/trip/5115155"
+         ]
+      }
+   ]
+}

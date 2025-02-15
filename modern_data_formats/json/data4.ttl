@@ -1,0 +1,45 @@
+    @prefix ex: <http://example.org/vocabulary/> .
+    @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+    @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+    <https://trips.cz/trip/151516> a ex:trip ;
+        ex:number "151516"^^<xsd:integer> ;
+        ex:startAddress "2427 Public Works Drive"@en ;
+        ex:endAddress "4439 Hamilton Drive"@en ;
+        ex:price "155"^^<xsd:integer> .
+
+    <https://trips.cz/trip/97889> a ex:trip ;
+        ex:number "97889"^^<xsd:integer> ;
+        ex:startAddress "862 Ward Road"@en ;
+        ex:endAddress "77 Thakurova"@en ;
+        ex:price "1545"^^<xsd:integer> .
+
+    <https://trips.cz/trip/5115155> a ex:trip ;
+        ex:number "5115155"^^<xsd:integer> ;
+        ex:startAddress "3351 Longview Avenue"@en ;
+        ex:endAddress "3351 Longview Avenue"@en ;
+        ex:price "1"^^<xsd:integer> .
+
+    <https://trips.cz/trip/111111> a ex:trip ;
+        ex:number "111111"^^<xsd:integer> ;
+        ex:startAddress "958 Tully Street"@en ;
+        ex:endAddress "4494 West Side Avenue"@en ;
+        ex:price "69"^^<xsd:integer> .
+
+    <https://trips.cz/trip/98555> a ex:trip ;
+        ex:number "98555"^^<xsd:integer> ;
+        ex:startAddress "3097 Grasselli Street"@en ;
+        ex:endAddress "1141 Gordon Street"@en ;
+        ex:price "101"^^<xsd:integer> .
+
+    <https://trips.cz/trip/5151> a ex:trip ;
+        ex:number "5151"^^<xsd:integer> ;
+        ex:startAddress "2240 Kinney Street"@en ;
+        ex:endAddress "3899 Little Street"@en ;
+        ex:price "101"^^<xsd:integer> .
+
+    <https://trips.cz/trip/99899> a ex:trip ;
+        ex:number "99899"^^<xsd:integer> ;
+        ex:startAddress "1857 Courtright Street"@en ;
+        ex:endAddress "2157 Southern Avenue"@en ;
+        ex:price "101"^^<xsd:integer> .

@@ -1,0 +1,43 @@
+    {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "http://example.com/driver.schema.json",
+        "title": "driver",
+        "description": "Representation of a driver",
+        "type": "object",
+        "properties": {
+            "nickname": {
+                "description": "Driver's nickname",
+                "type": "string"
+            },
+            "givenName": {
+                "description": "Driver's given name",
+                "type": "string"
+            },
+            "familyName": {
+                "description": "Driver's family name",
+                "type": "string"
+            },
+            "rating": {
+                "description": "Driver's rating",
+                "type": "array",
+                "items": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 5
+                }
+            },
+            "collaborate": {
+                "description": "Drivers collaborate with taxi services",
+                "$ref": "http://example.com/taxiService.schema.json"
+            },
+            "hasTrip": {
+                "description": "The driver has a trip",
+                "$ref": "http://example.com/trip.schema.json"
+            },
+            "performs": {
+                "description": "The driver performs the type of trip",
+                "$ref": "http://example.com/tripType.schema.json"
+            }
+        },
+        "required": ["nickname", "givenName", "familyName", "rating", "collaborate", "hasTrip", "performs"]
+    }

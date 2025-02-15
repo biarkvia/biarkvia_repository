@@ -1,0 +1,112 @@
+{
+    "@context":{
+       "ex":"http://example.org/vocabulary/",
+       "rdfs":"http://www.w3.org/2000/01/rdf-schema#",
+       "rdf":"http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+       "type":"@type",
+       "trip":"ex:trip",
+       "uri":"@id",
+       "number":{
+          "@id":"ex:number",
+          "@type":"xsd:integer"
+       },
+       "startAddress":{
+          "@id":"ex:startAddress",
+          "@container":"@language"
+       },
+       "endAddress":{
+          "@id":"ex:endAddress",
+          "@container":"@language"
+       },
+       "price":{
+          "@id":"ex:price",
+          "@type":"xsd:integer"
+       }
+    },
+    "@graph":[
+       {
+          "@type":"trip",
+          "@id":"https://trips.cz/trips/151516",
+          "number":151516,
+          "startAddress":{
+             "en":"2427 Public Works Drive"
+          },
+          "endAddress":{
+             "en":"4439 Hamilton Drive"
+          },
+          "price":155
+       },
+       {
+         "@type":"trip",
+         "@id":"https://trips.cz/trips/97889",
+         "number":97889,
+         "startAddress":{
+            "en":"862 Ward Road"
+         },
+         "endAddress":{
+            "en":"77 Thakurova"
+         },
+         "price":1545
+      },
+      {
+         "@type":"trip",
+         "@id":"https://trips.cz/trips/5115155",
+         "number":5115155,
+         "startAddress":{
+            "en":"3351 Longview Avenue"
+         },
+         "endAddress":{
+            "en":"3351 Longview Avenue"
+         },
+         "price":1
+      },
+      {
+         "@type":"trip",
+         "@id":"https://trips.cz/trips/111111",
+         "number":111111,
+         "startAddress":{
+            "en":"958 Tully Street"
+         },
+         "endAddress":{
+            "en":"4494 West Side Avenue"
+         },
+         "price":69
+      },
+      {
+         "@type":"trip",
+         "@id":"https://trips.cz/trips/98555",
+         "number":98555,
+         "startAddress":{
+            "en":"3097 Grasselli Street"
+         },
+         "endAddress":{
+            "en":"1141 Gordon Street"
+         },
+         "price":101
+      },
+      {
+         "@type":"trip",
+         "@id":"https://trips.cz/trips/5151",
+         "number":5151,
+         "startAddress":{
+            "en":"2240 Kinney Street"
+         },
+         "endAddress":{
+            "en":"3899 Little Street"
+         },
+         "price":101
+      },
+      {
+         "@type":"trip",
+         "@id":"https://trips.cz/trips/99899",
+         "number":99899,
+         "startAddress":{
+            "en":"1857 Courtright Street"
+         },
+         "endAddress":{
+            "en":"2157 Southern Avenue"
+         },
+         "price":101
+      }
+    ]
+ }

@@ -1,0 +1,51 @@
+{
+  "@context":{
+     "ex":"http://example.org/vocabulary/",
+     "rdfs":"http://www.w3.org/2000/01/rdf-schema#",
+     "rdf":"http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+     "type":"@type",
+     "city":"ex:city",
+     "uri":"@id",
+     "cityName":{
+        "@id":"ex:cityName",
+        "@container":"@language"
+     }
+  },
+  "@graph":[
+     {
+        "@type":"city",
+        "@id":"https://cities.cz/city/Minsk",
+        "cityName":{
+           "en":"Minsk"
+        }
+     },
+     {
+        "@type":"city",
+        "@id":"https://cities.cz/city/Amsterdam",
+        "cityName":{
+           "en":"Amsterdam"
+        }
+     },
+     {
+        "@type":"city",
+        "@id":"https://cities.cz/city/Prague",
+        "cityName":{
+           "en":"Prague"
+        }
+     },
+     {
+        "@type":"city",
+        "@id":"https://cities.cz/city/Rome",
+        "cityName":{
+           "en":"Rome"
+        }
+     },
+     {
+        "@type":"city",
+        "@id":"https://cities.cz/city/Berlin",
+        "cityName": {
+            "en": "Berlin"
+         }
+     }
+  ]
+}

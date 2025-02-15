@@ -1,0 +1,33 @@
+@prefix ex: <http://example.org/vocabulary/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://taxiServices.cz/taxiService/Uber> a ex:taxiService ;
+    ex:city <https://cities.cz/city/Minsk> ;
+    ex:taxiServiceName "Uber"@en ; 
+    ex:phoneNumber "999558642" .
+
+<https://taxiServices.cz/taxiService/Diamond> a ex:taxiService ;
+    ex:city <https://cities.cz/city/Amsterdam> ;
+    ex:taxiServiceName "Diamond"@en ; 
+    ex:phoneNumber "914807900" .
+
+<https://taxiServices.cz/taxiService/777> a ex:taxiService ;
+    ex:city "https://cities.cz/city/Prague" ;
+    ex:taxiServiceName "777"@en ; 
+    ex:phoneNumber "777" .
+
+<https://taxiServices.cz/taxiService/7788> a ex:taxiService ;
+    ex:city <https://cities.cz/city/Berlin> ;
+    ex:taxiServiceName "7788"@en ; 
+    ex:phoneNumber "778800000" .
+
+<https://taxiServices.cz/taxiService/AirportTaxis> a ex:taxiService ;
+    ex:city <https://cities.cz/city/Rome> ;
+    ex:taxiServiceName "AirportTaxis"@en ;
+    ex:phoneNumber "112223334" .
+
+<https://taxiServices.cz/taxiService/SafetyCab> a ex:taxiService ;
+    ex:city <https://cities.cz/city/Berlin> ;
+    ex:taxiServiceName "SafetyCab"@en ;
+    ex:phoneNumber "211" .

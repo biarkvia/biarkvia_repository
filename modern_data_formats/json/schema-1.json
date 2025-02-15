@@ -1,0 +1,14 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "http://example.com/city.schema.json",
+    "title": "City",
+    "description": "Representation of a city served by the taxi service",
+    "type": "object",
+    "properties": {
+      "cityName": {
+        "description": "Name of a city",
+        "type": "string"
+      }
+    },
+    "required": ["cityName"]
+}

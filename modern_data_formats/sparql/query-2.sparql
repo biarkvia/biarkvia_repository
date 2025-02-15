@@ -1,0 +1,8 @@
+# Check how many taxi services has a driver with name Nick
+
+PREFIX ex: <http://example.org/vocabulary/>
+SELECT (COUNT(?taxiService) as ?count)
+WHERE {
+  ?driver ex:givenName "Nick"@en ;
+                  ex:collaborate ?taxiService .
+}

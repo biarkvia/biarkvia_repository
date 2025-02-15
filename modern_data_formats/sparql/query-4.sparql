@@ -1,0 +1,10 @@
+# List the prices of trips where the starting and ending addresses are the same.
+
+PREFIX ex: <http://example.org/vocabulary/>
+SELECT ?price
+WHERE {
+  ?trip a ex:trip ;
+       ex:startAddress ?address ;
+       ex:endAddress ?address ;
+       ex:price ?price .
+}

@@ -1,0 +1,12 @@
+# Create a new RDF containing information about the list of drivers who have a rating greater than 3
+
+PREFIX ex: <http://example.org/vocabulary/>
+CONSTRUCT {
+  ?driver ex:nickname ?nickname;
+                  ex:rating ?rating .
+}
+WHERE {
+  ?driver ex:rating ?rating .
+  FILTER (?rating > 3)
+  OPTIONAL { ?driver ex:nickname ?nickname. }
+}

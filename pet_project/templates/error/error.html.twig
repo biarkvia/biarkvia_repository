@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Evidence zaměstnanců - chybová stránka{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/general.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/error.css') }}">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <h2>Chybová stránka</h2>
+
+        <div class="error-message">
+            <p>{{ message }}</p>
+            <div class="link">
+                <a href="{{ path('home_index') }}" class="button">Vraťte se na titulní stránku</a>
+            </div>
+        </div>
+    </main>
+{% endblock %}

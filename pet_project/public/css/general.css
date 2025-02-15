@@ -1,0 +1,193 @@
+:root {
+    --primary-color: #4a90e2;
+    --primary-color-hover: #357ABD;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --header-bg-color: var(--primary-color);
+    --header-text-color: #fff;
+    --nav-bg-color: #333;
+    --nav-text-color: #fff;
+    --nav-item-padding: 0.75rem 1.5rem;
+    --footer-bg-color: #222;
+    --footer-text-color: #bbb;
+    --box-shadow: 0rem 0.25rem 0.375rem #1A000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+    text-align: center;
+    padding: 1rem 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.0625rem;
+}
+
+nav {
+    background-color: var(--nav-bg-color);
+    padding: 1rem 0;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav li {
+    margin: 0 1rem;
+}
+
+section > *:not(h1):not(h2) {
+    margin: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--nav-text-color);
+    font-weight: bold;
+    padding: var(--nav-item-padding);
+    background-color: var(--primary-color);
+    border-radius: 50rem;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--primary-color-hover);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+    position: relative;
+}
+
+a:hover {
+    transform: translateY(-2px);
+    text-decoration: underline;
+}
+
+main {
+    flex-grow: 1;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main > * {
+    max-width: 75rem;
+    width: 100%;
+}
+
+footer {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 48rem) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav li {
+        margin: 0.5rem 0;
+    }
+
+    nav a {
+        padding: 0.5rem 1rem;
+    }
+
+    main {
+        padding: 2rem;
+        flex-direction: column;
+    }
+
+    main section {
+        margin-bottom: 2rem;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+
+    .pagination {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pagination .button {
+        margin: 0.5rem 0 !important;
+    }
+
+    a img {
+        margin-top: 0.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 0rem !important;
+    }
+}
+
+.button {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--primary-color-hover);
+    transform: scale(1.05);
+}
+
+a img {
+    margin-top: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.sort-form {
+    max-width: 10.5rem;
+}

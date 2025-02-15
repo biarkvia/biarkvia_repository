@@ -1,0 +1,125 @@
+:root {
+    --primary-color: #4a90e2;
+    --hover-color: #357ABD;
+    --background-light: #f4f4f4;
+    --background-even: #f9f9f9;
+    --background-hover: #e6e6e6;
+    --text-color: #333;
+    --border-color: #ddd;
+    --padding-standard: 0.75rem;
+    --margin-standard: 1rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h2-small: 1.25rem;
+    --font-size-h1-small: 1.75rem;
+    --border-radius: 0.5rem;
+    --transition-time: 0.3s;
+    --button-padding: 0.5rem 1rem;
+    --button-font-size: 0.9rem;
+}
+
+main {
+    padding: var(--margin-standard);
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin-standard);
+    flex-grow: 1;
+}
+
+.accounts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--margin-standard);
+    min-width: 100%;
+    margin-right: 0;
+}
+
+.accounts-table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.accounts-table th,
+.accounts-table td {
+    padding: var(--padding-standard);
+    text-align: left;
+    border: 0.1rem solid var(--border-color);
+}
+
+.accounts-table th {
+    background-color: var(--background-light);
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.accounts-table tr:nth-child(even) {
+    background-color: var(--background-even);
+}
+
+.accounts-table tr:hover {
+    background-color: var(--background-hover);
+}
+
+.accounts-table td strong {
+    color: var(--text-color);
+}
+
+main {
+    padding: var(--margin-standard);
+}
+
+nav {
+    margin-bottom: var(--margin-standard);
+    text-align: center;
+}
+
+nav h2 {
+    font-size: var(--font-size-h2);
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--margin-standard);
+    justify-content: center;
+    padding: 0;
+}
+
+nav a {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-time) ease-in-out;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus {
+    background-color: var(--hover-color);
+}
+
+@media (max-width: 48rem) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: var(--font-size-h1-small);
+    }
+
+    h2 {
+        font-size: var(--font-size-h2-small);
+    }
+
+    main, header, footer {
+        padding: var(--margin-standard);
+    }
+}
+
+.action-link:first-child {
+    margin-left: 0.25rem;
+}

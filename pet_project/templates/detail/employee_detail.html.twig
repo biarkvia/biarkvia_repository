@@ -1,0 +1,59 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Evidence zaměstnanců - detail zaměstnance{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/general.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/employees_detail.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+{% endblock %}
+
+{% block content %}
+    <main class="main-container">
+        <h2 class="main-title">Detail zaměstnance</h2>
+        <div class="employee-list">
+            <div class="employee-detail">
+                <div class="employee-actions">
+                    <a href="{{ path('edit_employee', { id: employee.id }) }}">
+                        <img src="{{ asset('icons/edit.png') }}" alt="Upravit zaměstnance" width="20" height="20">
+                    </a>
+                    <a href="{{ path('remove_employee', { id: employee.id }) }}"
+                       class="delete-employee"
+                       data-delete-url="{{ path('remove_employee', { id: employee.id }) }}"
+                       data-first-name="{{ employee.firstName }}"
+                       data-last-name="{{ employee.lastName }}">
+                        <img src="{{ asset('icons/delete.png') }}" alt="Smazat zaměstnance" width="20" height="20">
+                    </a>
+                </div>
+                <h2>{{ employee.firstName }} {{ employee.lastName }}</h2>
+                <img src="{{ asset('images/employee' ~ employee.id ~ '.jpg') }}" alt="Fotografie {{ employee.firstName }}" width="100" height="100">
+                <details>
+                    <summary>Kontakt</summary>
+                    <ul>
+                        <li>Funkce:
+                            {% set visibleRoles = employee.roles|filter(role => role.isVisible) %}
+                            {% if visibleRoles is not empty %}
+                                {{ visibleRoles|map(role => role.title)|join(', ') }}
+                            {% else %}
+                                <span>Nezadáno</span>
+                            {% endif %}
+                        </li>
+                        <li>Telefon: {{ employee.phone }}</li>
+                        <li>Email: <a href="mailto:{{ employee.email }}">{{ employee.email }}</a></li>
+                        <li>Webová stránka: <a href="{{ employee.website }}">{{ employee.website }}</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Popis</summary>
+                    <ul>
+                        <li>{{ employee.description }}</li>
+                    </ul>
+                </details>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('scripts/remove-employee.js') }}"></script>
+{% endblock %}

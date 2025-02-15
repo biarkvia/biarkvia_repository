@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Evidence zaměstnanců - vytvoření účtu zaměstnance{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/general.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+{% endblock %}
+
+{% block content %}
+    <main class="main-container">
+        <section>
+            <h2>Vytvoření nového účtu zaměstnance</h2>
+
+            <div class="form-container">
+                {{ form_start(accountForm) }}
+                {{ form_row(accountForm.name) }}
+                <div class="custom-block-container">
+
+                    <label>{{ form_label(accountForm.type) }}</label>
+
+                    {% for typeOption in accountForm.type %}
+
+                        <div class="custom-block-item">
+                            {{ form_widget(typeOption) }}
+                            {{ form_label(typeOption) }}
+                        </div>
+
+                    {% endfor %}
+                </div>
+
+                {{ form_row(accountForm.expiration) }}
+                {{ form_row(accountForm.employee) }}
+                {{ form_widget(accountForm.submit) }}
+                {{ form_end(accountForm) }}
+            </div>
+        </section>
+    </main>
+{% endblock %}

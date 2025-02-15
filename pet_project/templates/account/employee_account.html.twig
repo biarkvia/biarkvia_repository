@@ -1,0 +1,127 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Evidence zaměstnanců - detail účtů zaměstnance{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/general.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/employees_accounts.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+{% endblock %}
+
+{% block content %}
+    <main id="employee-accounts" class="main-container">
+        <section>
+            <h2>Vyhledávací formulář</h2>
+            <details>
+                <summary>
+                    <a class="search">
+                        <img src="{{ asset('icons/search.png') }}" alt="Otevřít vyhledávání">
+                    </a>
+                </summary>
+                <section>
+                    <div class="form-container">
+                        <form method="get" action="{{ path('employee_account', { employeeId: employee.id }) }}" class="search-form">
+                            <label>
+                                Název účtu:
+                                <input type="text" name="name" value="{{ app.request.query.get('name', '') }}">
+                                Typ účtu:
+                                <div class="custom-block-container">
+                                    <div class="custom-block-item">
+                                        <input type="radio" id="type1" name="type" value="username"
+                                               {% if app.request.query.get('type') == 'username' %}checked{% endif %}>
+                                        <label for="type1">Username</label>
+                                    </div>
+                                    <div class="custom-block-item">
+                                        <input type="radio" id="type2" name="type" value="password"
+                                               {% if app.request.query.get('type') == 'password' %}checked{% endif %}>
+                                        <label for="type2">Password</label>
+                                    </div>
+                                    <div class="custom-block-item">
+                                        <input type="radio" id="type3" name="type" value="card"
+                                               {% if app.request.query.get('type') == 'card' %}checked{% endif %}>
+                                        <label for="type3">Card</label>
+                                    </div>
+                                </div>
+                                Datum expirace:
+                                <input type="date" name="expiration" value="{{ app.request.query.get('expiration', '') }}">
+                            </label>
+                            <button type="submit" class="btn-primary">Vyhledat</button>
+                        </form>
+                    </div>
+                </section>
+            </details>
+        </section>
+
+        <section>
+            <h2>Seznam účtů zaměstnance: {{ employee.firstName }} {{ employee.lastName }}</h2>
+
+            <details>
+                <summary>
+                    <a>
+                        <img src="{{ asset('icons/create.png') }}" alt="Vytvořit nový účet zaměstnance">
+                    </a>
+                </summary>
+                <div class="form-container">
+                    {{ form_start(form, { 'attr': { 'id': 'create-account-form', 'data-create': path('api_accounts_create', { employeeId: employee.id }) } }) }}
+                    {{ form_row(form.name) }}
+
+                    <div class="custom-block-container">
+                        <label>{{ form_label(form.type) }}</label>
+                        {% for typeOption in form.type %}
+                            <div class="custom-block-item">
+                                {{ form_widget(typeOption) }}
+                                {{ form_label(typeOption) }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {{ form_row(form.expiration) }}
+                    {{ form_row(form.employee) }}
+                    {{ form_widget(form.submit) }}
+                </div>
+            </details>
+
+            <div class="accounts-table-wrapper">
+                <table class="accounts-table">
+                    <thead>
+                    <tr>
+                        <th><strong>Název účtu</strong></th>
+                        <th><strong>Typ účtu</strong></th>
+                        <th><strong>Expirace</strong></th>
+                        <th><strong>Akce</strong></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for account in accounts %}
+                        <tr>
+                            <td><strong>{{ account.name }}</strong></td>
+                            <td><strong>{{ account.type }}</strong></td>
+                            <td>
+                                <strong>
+                                    {% if account.expiration is null %}
+                                        Permanentní
+                                    {% else %}
+                                        {{ account.expiration|date('d.m.Y') }}
+                                    {% endif %}
+                                </strong>
+                            </td>
+                            <td class="actions">
+                                <a href="/accounts/{{ employee.id }}/edit/{{ account.id }}" class="action-link edit-account" data-id="{{ account.id }}" data-employee-id="{{ employee.id }}">
+                                    <img src="/icons/edit.png" alt="Upravit účet" class="icon">
+                                </a>
+
+                                <a href="#" class="action-link delete-account" data-id="{{ account.id }}" data-employee-id="{{ employee.id }}">
+                                    <img src="/icons/delete.png" alt="Smazat účet" class="icon">
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4">Nejsou k dispozici žádné účty.</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+{% endblock %}

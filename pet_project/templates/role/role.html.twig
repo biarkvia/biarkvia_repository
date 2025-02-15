@@ -1,0 +1,110 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Evidence zaměstnanců - přehled rolí{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/general.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/roles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+{% endblock %}
+
+{% block content %}
+    <main class="main-container">
+        <section>
+            <h2>Vyhledávací formulář</h2>
+            <details>
+                <summary>
+                    <a class="search">
+                        <img src="{{ asset('icons/search.png') }}" alt="Otevřít vyhledávání">
+                    </a>
+                </summary>
+                <section>
+                    <div class="form-container">
+                        <form method="get" action="{{ path('roles') }}" class="search-form">
+                            <label>
+                                Název role:
+                                <select id="role-title-select" name="title">
+                                    <option value="" selected>Vyberte roli...</option>
+                                    {% for role in roles %}
+                                        <option value="{{ role.title }}">{{ role.title }}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="text" id="role-title-input" name="title" style="display: none;" list="role-titles" autocomplete="off">
+                                <datalist id="role-titles"></datalist>
+                            </label>
+                            <label>
+                                Popis:
+                                <input type="text" name="description" value="{{ app.request.query.get('description', '') }}">
+                            </label>
+                            <label>
+                                Viditelná:
+                                <select name="isVisible">
+                                    <option value="">Nevadí</option>
+                                    <option value="1" {% if app.request.query.get('isVisible') == '1' %}selected{% endif %}>Ano</option>
+                                    <option value="0" {% if app.request.query.get('isVisible') == '0' %}selected{% endif %}>Ne</option>
+                                </select>
+                            </label>
+                            <button type="submit" class="btn-primary">Vyhledat</button>
+                        </form>
+                    </div>
+                </section>
+            </details>
+        </section>
+
+        <section>
+            <h2>Přehled všech rolí</h2>
+
+            <a href="{{ path('create_role') }}">
+                <img src="{{ asset('icons/role.png') }}" alt="Vytvořit novou roli">
+            </a>
+
+            <ul class="role-list">
+                {% for role in roles %}
+                    <li class="role-item">
+                        <article class="role-card">
+                            <div class="role-actions">
+                                <a href="{{ path('edit_role', { id: role.id }) }}">
+                                    <img src="{{ asset('icons/edit.png') }}" alt="Upravit role" width="20" height="20">
+                                </a>
+                                <a href="{{ path('remove_role', { id: role.id }) }}">
+                                    <img src="{{ asset('icons/delete.png') }}" alt="Smazat role" width="20" height="20">
+                                </a>
+                            </div>
+                            <h2 class="role-title">{{ role.title }}</h2>
+                            <p>{{ role.description }}</p>
+                            <p>Viditelná: {{ role.isVisible ? 'Ano' : 'Ne' }}</p>
+                        </article>
+                    </li>
+                {% else %}
+                    <p>Žádné role nenalezeny.</p>
+                {% endfor %}
+            </ul>
+
+            <div class="pagination-info">
+                Stránka {{ currentPage }} z {{ totalPages }}
+            </div>
+
+            <div class="pagination">
+                <a href="{{ path('roles', { page: 1 }) }}" class="button">První</a>
+
+                {% if currentPage > 1 %}
+                    <a href="{{ path('roles', { page: currentPage - 1 }) }}" class="button">Předchozí</a>
+                {% else %}
+                    <span class="button disabled">Předchozí</span>
+                {% endif %}
+
+                {% if currentPage < totalPages %}
+                    <a href="{{ path('roles', { page: currentPage + 1 }) }}" class="button">Další</a>
+                {% else %}
+                    <span class="button disabled">Další</span>
+                {% endif %}
+
+                <a href="{{ path('roles', { page: totalPages }) }}" class="button">Poslední</a>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('scripts/role-autocomplete.js') }}" defer></script>
+{% endblock %}

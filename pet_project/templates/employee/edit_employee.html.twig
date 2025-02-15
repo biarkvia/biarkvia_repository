@@ -1,0 +1,40 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Evidence zaměstnanců - úprava zaměstnance{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/general.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+{% endblock %}
+
+{% block content %}
+    <main class="main-container">
+        <section>
+            <h2>Úprava zaměstnance</h2>
+
+            <div class="form-container">
+                {{ form_start(form) }}
+                {{ form_row(form.firstName) }}
+                {{ form_row(form.lastName) }}
+
+                <div class="custom-block-container">
+                    <label>{{ form_label(form.roles) }}</label>
+                    {{ form_errors(form.roles) }}
+                    {% for role in form.roles %}
+                        <div class="custom-block-item">
+                            {{ form_widget(role) }}
+                            {{ form_label(role) }}
+                        </div>
+                    {% endfor %}
+                </div>
+
+                {{ form_row(form.email) }}
+                {{ form_row(form.phone) }}
+                {{ form_row(form.website) }}
+                {{ form_row(form.description) }}
+                {{ form_widget(form.submit) }}
+                {{ form_end(form) }}
+            </div>
+        </section>
+    </main>
+{% endblock %}

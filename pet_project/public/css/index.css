@@ -1,0 +1,102 @@
+:root {
+    --transition-time: 0.3s;
+    --background-hover: #e6e6e6;
+}
+
+.latest-users ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.latest-users li {
+    transition: background-color var(--transition-time) ease-in-out;
+}
+
+.latest-users li:hover {
+    background-color: var(--background-hover);
+}
+
+@media (max-width: 48rem) {
+    .latest-users ul {
+        flex-direction: column;
+    }
+
+    .horizontal-sections {
+        flex-direction: column;
+    }
+
+    .horizontal-sections > section {
+        max-width: 100%;
+    }
+}
+
+.horizontal-sections {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.horizontal-sections > section {
+    flex: 1;
+    max-width: 50%;
+    margin: 0 1rem;
+}
+
+dialog {
+    width: 80%;
+    max-width: 25rem;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
+    background: white;
+    text-align: center;
+    position: relative;
+    margin: auto;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+}
+
+.dialog-actions .btn-primary,
+.dialog-actions .btn-secondary {
+    flex: 1;
+    max-width: 40%;
+    text-transform: uppercase;
+    font-size: 1rem;
+    border-radius: 50rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.dialog-actions .btn-primary:hover,
+.dialog-actions .btn-secondary:hover {
+    background-color: var(--primary-color-hover);
+    transform: scale(1.05);
+}
+
+.dialog-actions {
+    padding: 0 1rem;
+}
+
+

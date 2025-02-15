@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Evidence zaměstnanců{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/general.css') }}">
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+            <h1>Evidence zaměstnanců</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="{{ path('home_index') }}" class="button">Titulní stránka</a></li>
+                <li><a href="{{ path('employees') }}" class="button">Přehled všech zaměstnanců</a></li>
+                <li><a href="{{ path('roles') }}" class="button">Přehled všech rolí</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+
+        <footer>
+            <p>Kontakt: Viachaslau Biarko | Adresa: Praha | Tel.: iPhone | Email: <a href="mailto:biarkvia@fit.cvut.cz">biarkvia@fit.cvut.cz</a></p>
+        </footer>
+        {% block javascripts %}
+            <script src="{{ asset('scripts/rest.js') }}" defer></script>
+            <script src="{{ asset('scripts/autocomplete.js') }}"></script>
+            <script src="{{ asset('scripts/autocomplete.js') }}" defer></script>
+        {% endblock %}
+    </body>
+</html>

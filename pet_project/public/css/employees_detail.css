@@ -1,0 +1,107 @@
+:root {
+    --background-color: #fff;
+    --box-shadow: 0rem 0.5rem 1rem #0000001A;
+}
+
+.main-container {
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.employee-list {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.employee-detail {
+    background-color: var(--background-color);
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    max-width: 32rem;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.employee-detail:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow);
+}
+
+.employee-detail h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.employee-detail img {
+    display: block;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+}
+
+.employee-detail details {
+    margin-bottom: 1rem;
+}
+
+.employee-detail details:last-of-type {
+    margin-bottom: -0.5rem;
+}
+
+.employee-detail details summary {
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+
+.employee-detail details ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+}
+
+.employee-detail details li {
+    margin-bottom: 0.5rem;
+}
+
+.employee-detail p {
+    line-height: 1.5;
+    margin-top: 1rem;
+}
+
+@media (max-width: 48rem) {
+    .employee-detail h2 {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    .employee-detail img {
+        width: 10rem;
+        height: 10rem;
+        margin-bottom: 1rem;
+    }
+
+    .employee-detail details summary {
+        font-size: 1rem;
+    }
+}
+
+.employee-actions {
+    display: flex;
+    flex-direction: row;
+}
+
+.employee-actions img {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0;
+    margin-right: 0.75rem;
+}

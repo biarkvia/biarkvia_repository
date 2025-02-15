@@ -1,0 +1,142 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Evidence zaměstnanců - přehled všech zaměstnanců{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/general.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/employees.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+{% endblock %}
+
+{% block content %}
+    <main class="main-container">
+        <section>
+            <h2>Vyhledávací formulář</h2>
+            <details>
+                <summary>
+                    <a class="search">
+                        <img src="{{ asset('icons/search.png') }}" alt="Otevřít vyhledávání">
+                    </a>
+                </summary>
+                <section>
+                    <div class="form-container">
+                        <form method="get" action="{{ path('employees') }}" class="search-form">
+                            <label>
+                                Jméno
+                                <input type="text" name="firstName" value="{{ app.request.query.get('firstName', '') }}">
+                                Příjmení
+                                <input type="text" name="lastName" value="{{ app.request.query.get('lastName', '') }}">
+                            </label>
+
+                            <div class="custom-block-container">
+                                <h3>Funkce:</h3>
+                                {% set visibleRoles = allRoles|filter(role => role.isVisible) %}
+                                {% set selectedRoles = app.request.query.all('roleTitles') %}
+                                {% if not selectedRoles %}
+                                    {% set selectedRoles = [] %}
+                                {% endif %}
+                                {% for role in visibleRoles %}
+                                    <div class="custom-block-item">
+                                        <input type="checkbox" name="roleTitles[]" value="{{ role.title }}"
+                                               {% if role.title in selectedRoles %}checked{% endif %}>
+                                        <label>{{ role.title }}</label>
+                                    </div>
+                                {% endfor %}
+                            </div>
+
+                            <label>
+                                Email
+                                <input type="text" name="email" value="{{ app.request.query.get('email', '') }}">
+                                Telefon
+                                <input type="text" name="phone" value="{{ app.request.query.get('phone', '') }}">
+                                Webová stránka
+                                <input type="text" name="website" value="{{ app.request.query.get('website', '') }}">
+                                Popis
+                                <input type="text" name="description" value="{{ app.request.query.get('description', '') }}">
+                            </label>
+
+                            <button type="submit" class="btn-primary">Vyhledat</button>
+                        </form>
+                    </div>
+                </section>
+            </details>
+        </section>
+
+        <section>
+            <h2>Přehled všech zaměstnanců</h2>
+            <div class="dropdown">
+                <button class="dropdown-button">Seřadit podle</button>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ path('employees', app.request.query.all|merge({'sort': 'id'})) }}" class="{% if fieldOfSort == 'id' %}active{% endif %}">ID</a></li>
+                    <li><a href="{{ path('employees', app.request.query.all|merge({'sort': 'firstName'})) }}" class="{% if fieldOfSort == 'firstName' %}active{% endif %}">Jméno</a></li>
+                    <li><a href="{{ path('employees', app.request.query.all|merge({'sort': 'lastName'})) }}" class="{% if fieldOfSort == 'lastName' %}active{% endif %}">Příjmení</a></li>
+                    <li><a href="{{ path('employees', app.request.query.all|merge({'sort': 'role'})) }}" class="{% if fieldOfSort == 'role' %}active{% endif %}">Role</a></li>
+                    <li><a href="{{ path('employees', app.request.query.all|merge({'sort': 'email'})) }}" class="{% if fieldOfSort == 'email' %}active{% endif %}">Email</a></li>
+                    <li><a href="{{ path('employees', app.request.query.all|merge({'sort': 'phone'})) }}" class="{% if fieldOfSort == 'phone' %}active{% endif %}">Telefon</a></li>
+                    <li><a href="{{ path('employees', app.request.query.all|merge({'sort': 'website'})) }}" class="{% if fieldOfSort == 'website' %}active{% endif %}">Webová stránka</a></li>
+                    <li><a href="{{ path('employees', app.request.query.all|merge({'sort': 'description'})) }}" class="{% if fieldOfSort == 'description' %}active{% endif %}">Popis</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <a href="{{ path('create_employee') }}" class="create-employee">
+                    <img src="{{ asset('icons/create.png') }}" alt="Vytvořit nového zaměstnance">
+                </a>
+            </div>
+
+            {% if employees is defined and employees|length > 0 %}
+                <ul class="employee-list">
+                    {% for emp in employees %}
+                        <li class="employee-item">
+                            <article class="employee-card">
+                                <h2 class="employee-name">{{ emp.firstName|default('Neznámé jméno') }} {{ emp.lastName|default('Neznámé příjmení') }}</h2>
+                                <img class="employee-photo" src="{{ asset('images/employee' ~ emp.id ~ '.jpg') }}" alt="Fotografie {{ emp.firstName|default('Neznámý zaměstnanec') }}">
+                                <p>Funkce:
+                                    {% set visibleRoles = emp.roles|default([])|filter(role => role.isVisible|default(false)) %}
+                                    {% if visibleRoles|length > 0 %}
+                                        {{ visibleRoles|map(role => role.title)|join(', ')|default('Nezadáno') }}
+                                    {% else %}
+                                        Nezadáno
+                                    {% endif %}
+                                </p>
+                                <p>Email: <a href="mailto:{{ emp.email|default('') }}">{{ emp.email|default('Nezadán email') }}</a></p>
+                                <div class="links">
+                                    <a href="{{ path('employee_detail', { id: emp.id|default(0) }) }}" class="button">Detail a úprava</a>
+                                    <a href="{{ path('employee_account', { employeeId: emp.id|default(0) }) }}" class="button">Detail účtů</a>
+                                </div>
+                            </article>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Zaměstnanci nebyli nalezeni.</p>
+            {% endif %}
+
+            {% if totalPages > 1 %}
+                <div class="pagination-info">Stránka {{ currentPage }} z {{ totalPages }}</div>
+
+                <div class="pagination">
+                    <a href="{{ path('employees', app.request.query.all|merge({'page': 1})) }}" class="button">První</a>
+
+                    {% if currentPage > 1 %}
+                        <a href="{{ path('employees', app.request.query.all|merge({'page': currentPage - 1})) }}" class="button">Předchozí</a>
+                    {% else %}
+                        <span class="button disabled">Předchozí</span>
+                    {% endif %}
+
+                    {% if currentPage < totalPages %}
+                        <a href="{{ path('employees', app.request.query.all|merge({'page': currentPage + 1})) }}" class="button">Další</a>
+                    {% else %}
+                        <span class="button disabled">Další</span>
+                    {% endif %}
+
+                    <a href="{{ path('employees', app.request.query.all|merge({'page': totalPages})) }}" class="button">Poslední</a>
+                </div>
+            {% endif %}
+        </section>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('scripts/dropdown.js') }}" defer></script>
+{% endblock %}

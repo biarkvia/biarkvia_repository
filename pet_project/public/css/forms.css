@@ -1,0 +1,122 @@
+:root {
+    --card-background: #fff;
+    --card-border-radius: 0.5rem;
+    --card-padding: 1.5rem;
+    --gap-size: 1.5rem;
+    --font-size-name: 1.3rem;
+    --button-padding: 0.5rem 1rem;
+    --button-font-size: 0.9rem;
+    --media-query: 48rem;
+    --primary-color: #4a90e2;
+    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+body {
+    display: block;
+}
+
+.form-container {
+    background-color: var(--card-background);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    padding: var(--card-padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    max-width: 25rem;
+    width: 100%;
+    margin: 3rem auto;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+input, select, textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    margin: 0.5rem 0 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.main-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: var(--gap-size);
+    gap: var(--gap-size);
+    min-height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.btn-primary, .btn-danger {
+    color: #fff;
+    background-color: var(--primary-color);
+    border-radius: 50rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    padding: var(--button-padding);
+    font-size: var(--button-font-size);
+    text-transform: uppercase;
+    margin: 0.5rem auto 0;
+    display: block;
+    text-align: center;
+    max-width: 14rem;
+    text-decoration: none;
+}
+
+.btn-primary:hover, .btn-danger:hover {
+    background-color: #357ABD;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+@media (max-width: var(--media-query)) {
+    .btn-primary, .btn-danger {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+    .form-container {
+        width: 100%;
+    }
+}
+
+.custom-block-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.custom-block-item {
+    display: flex !important;
+    align-items: center !important;
+    margin-right: 0.5rem !important;
+}
+
+.custom-block-item input[type="checkbox"],
+.custom-block-item input[type="radio"] {
+    margin: 0 !important;
+    width: auto !important;
+}
+
+.custom-block-item label {
+    font-weight: normal !important;
+    color: #333 !important;
+    margin-top: 0.5rem !important;
+    margin-left: 0.5rem !important;
+}
+
+details summary {
+    list-style: none;
+    cursor: pointer;
+}

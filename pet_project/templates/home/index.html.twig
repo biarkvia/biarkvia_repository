@@ -1,0 +1,102 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Evidence zaměstnanců - titulní stránka{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/general.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+{% endblock %}
+
+{% block content %}
+    <main class="main-container">
+        <div class="horizontal-sections">
+            <section class="latest-users">
+                <h2>Seznam nejnovějších uživatelů</h2>
+
+                <ul>
+                    {% if latestUsers|length > 0 %}
+                        {% for user in latestUsers %}
+                            <li>
+                                <a href="#" class="open-dialog" data-detail-url="{{ path('employee_detail', { id: user.id }) }}">
+                                    {{ user.getFullName() }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <li>Žádní uživatelé nejsou k dispozici.</li>
+                    {% endif %}
+                </ul>
+            </section>
+
+            <section>
+                <h2>Vyhledávací formulář</h2>
+                <details>
+                    <summary>
+                        <a class="search">
+                            <img src="{{ asset('icons/search.png') }}" alt="Otevřít vyhledávání">
+                        </a>
+                    </summary>
+                    <section>
+                        <div class="form-container">
+                            <form method="get" action="{{ path('employees') }}" class="search-form">
+                                <label>
+                                    Jméno
+                                    <input type="text" id="search-input" name="firstName" list="employee-names">
+                                    <datalist id="employee-names"></datalist>
+                                </label>
+                                <label>
+                                    Příjmení
+                                    <input type="text" name="lastName" value="{{ app.request.query.get('lastName', '') }}">
+                                </label>
+
+                                <div class="custom-block-container">
+                                    <h3>Funkce:</h3>
+                                    {% set visibleRoles = allRoles|filter(role => role.isVisible) %}
+                                    {% set selectedRoles = app.request.query.all('roleTitles') %}
+                                    {% if not selectedRoles %}
+                                        {% set selectedRoles = [] %}
+                                    {% endif %}
+                                    {% for role in visibleRoles %}
+                                        <div class="custom-block-item">
+                                            <input type="checkbox" name="roleTitles[]" value="{{ role.title }}"
+                                                   {% if role.title in selectedRoles %}checked{% endif %}>
+                                            <label>{{ role.title }}</label>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+
+                                <label>
+                                    Email
+                                    <input type="text" name="email" value="{{ app.request.query.get('email', '') }}">
+                                    Telefon
+                                    <input type="text" name="phone" value="{{ app.request.query.get('phone', '') }}">
+                                    Webová stránka
+                                    <input type="text" name="website" value="{{ app.request.query.get('website', '') }}">
+                                    Popis
+                                    <input type="text" name="description" value="{{ app.request.query.get('description', '') }}">
+                                </label>
+
+                                <button type="submit" class="btn-primary">Vyhledat</button>
+                            </form>
+                        </div>
+                    </section>
+                </details>
+            </section>
+        </div>
+    </main>
+
+    <dialog id="user-dialog">
+        <p id="dialog-message"></p>
+        <div class="dialog-actions">
+            <a id="cancel-dialog" class="btn-primary">Zrušit</a>
+            <a id="confirm-dialog" href="#" class="btn-primary">Přejít</a>
+        </div>
+    </dialog>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('scripts/dialog.js') }}"></script>
+    <script src="{{ asset('scripts/autocomplete.js') }}"></script>
+    <script src="{{ asset('scripts/autocomplete.js') }}" defer></script>
+{% endblock %}

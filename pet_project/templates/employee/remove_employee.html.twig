@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Evidence zaměstnanců - smazání zaměstnance{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/general.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+{% endblock %}
+
+{% block content %}
+    <main class="main-container">
+        <section>
+            <h2>Smazání zaměstnance</h2>
+
+            <div class="form-container">
+                <p>Opravdu chcete smazat zaměstnance {{ employee.firstName }} {{ employee.lastName }}?</p>
+                {{ form_start(form) }}
+                <div class="links">
+                    {{ form_widget(form) }}
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </section>
+
+    </main>
+{% endblock %}

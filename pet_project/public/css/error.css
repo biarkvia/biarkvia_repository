@@ -1,0 +1,59 @@
+main {
+    flex-direction: column;
+}
+
+main h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    padding: 1rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+    max-width: 32rem;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.error-message::before {
+    content: "❗";
+    color: red;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.error-message p {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.link {
+    margin-top: auto;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.link .button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+@media (max-width: 48rem) {
+    .error-message {
+        padding: 1rem;
+    }
+
+    .error-message button {
+        width: 100%;
+    }
+}

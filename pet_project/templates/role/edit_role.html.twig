@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Evidence zaměstnanců - úprava role{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/general.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+{% endblock %}
+
+{% block content %}
+    <main class="main-container">
+        <section>
+            <h2>Úprava role</h2>
+
+            <div class="form-container">
+                {{ form_start(form) }}
+                {{ form_row(form.title) }}
+                {{ form_row(form.description) }}
+                <div class="custom-block-container">
+                    <div class="custom-block-item">
+                        {{ form_widget(form.isVisible) }}
+                        {{ form_label(form.isVisible) }}
+                </div>
+                {{ form_widget(form.submit) }}
+                {{ form_end(form) }}
+            </div>
+        </section>
+    </main>
+{% endblock %}
